@@ -23,16 +23,16 @@
                 extend: {
                     colors: {
                         tiffany: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            200: '#99f6e4',
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
+                            50: '#e8f4fa',
+                            100: '#c5e4f3',
+                            200: '#9fd3ec',
+                            300: '#6fbfe4',
+                            400: '#3daddc',
+                            500: '#0086bd',
+                            600: '#006d99',
+                            700: '#005475',
+                            800: '#003b52',
+                            900: '#00232f',
                         }
                     },
                     fontFamily: {
@@ -91,8 +91,8 @@
             --gx-4: 90%;
             --gy-1: 15vh;
             --gy-2: 60vh;
-            --grid-color: rgba(20, 184, 166, 0.08); /* Tiffany tint */
-            --beam-color: #14b8a6; /* Tiffany 500 */
+            --grid-color: rgba(0, 134, 189, 0.08); /* Brand tint */
+            --beam-color: #0086bd; /* Brand 500 */
         }
         .grid-line-v {
             position: absolute;
@@ -147,20 +147,20 @@
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(135deg, #14b8a6, #0d9488);
+            background-image: linear-gradient(135deg, #0086bd, #006d99);
         }
         .text-gradient-light {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(135deg, #99f6e4, #2dd4bf);
+            background-image: linear-gradient(135deg, #9fd3ec, #3daddc);
         }
 
         /* Ambient Glow */
         .ambient-glow {
             position: absolute;
             width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 134, 189, 0.08) 0%, transparent 70%);
             border-radius: 50%; filter: blur(40px);
             pointer-events: none; z-index: 0;
         }
@@ -173,16 +173,16 @@
         .ds-label {
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
-            color: #14b8a6; margin-bottom: 2rem; display: inline-block;
-            background: rgba(20, 184, 166, 0.1);
+            color: #0086bd; margin-bottom: 2rem; display: inline-block;
+            background: rgba(0, 134, 189, 0.1);
             padding: 0.5rem 1rem; border-radius: 20px;
         }
         /* OP1 Button Styles */
         .btn-op1-primary {
-            background: radial-gradient(circle at 10% 0%, #DBF5F0 0%, #37BEB0 100%) !important;
-            box-shadow: 0 15px 25px -10px rgba(55, 190, 176, 0.7), 
-                        inset 0 4px 8px rgba(219, 245, 240, 0.9), 
-                        inset 0 -4px 8px rgba(55, 190, 176, 0.9) !important;
+            background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%) !important;
+            box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), 
+                        inset 0 4px 8px rgba(214, 237, 247, 0.9), 
+                        inset 0 -4px 8px rgba(0, 134, 189, 0.9) !important;
             border: none !important;
             color: #0f172a !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -192,9 +192,9 @@
         }
         .btn-op1-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 20px 30px -10px rgba(55, 190, 176, 0.8), 
-                        inset 0 4px 8px rgba(219, 245, 240, 0.9), 
-                        inset 0 -4px 8px rgba(55, 190, 176, 0.9) !important;
+            box-shadow: 0 20px 30px -10px rgba(0, 134, 189, 0.8), 
+                        inset 0 4px 8px rgba(214, 237, 247, 0.9), 
+                        inset 0 -4px 8px rgba(0, 134, 189, 0.9) !important;
         }
         .btn-op1-secondary {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%) !important;
@@ -275,7 +275,7 @@
 </div>
 
 <!-- Navigation (Tiffany Glass Blur) -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all" style="background: radial-gradient(circle at 10% 0%, rgba(219, 245, 240, 0.85) 0%, rgba(55, 190, 176, 0.65) 100%); border-color: rgba(55, 190, 176, 0.2); box-shadow: 0 8px 32px -8px rgba(55, 190, 176, 0.25), inset 0 2px 4px rgba(219, 245, 240, 0.6), inset 0 -1px 3px rgba(55, 190, 176, 0.3);">
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
     <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
         <div class="flex items-center gap-3 text-zinc-900 flex-shrink-0 group cursor-pointer">
             <div class="flex text-white bg-gradient-to-br from-tiffany-600 to-tiffany-700 w-10 h-10 rounded-xl items-center justify-center shadow-lg shadow-tiffany-600/30 group-hover:scale-105 transition-transform">
@@ -321,7 +321,7 @@
                 <!-- Headline -->
                 <h1 class="leading-[0.95] lg:text-[5rem] text-5xl font-medium text-zinc-900 tracking-tighter mb-8">
                     Design System
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-100 via-tiffany-300 to-tiffany-500 font-light">Pattern Library</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Pattern Library</span>
                 </h1>
                 <!-- Subheadline -->
                 <p class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6">
@@ -329,7 +329,7 @@
                 </p>
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 lg:mb-24 mb-16 gap-x-3 gap-y-3">
-                    <button class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-xl gap-x-3 gap-y-3 items-center justify-between" style="background: radial-gradient(circle at 10% 0%, #DBF5F0 0%, #37BEB0 100%); box-shadow: 0 15px 25px -10px rgba(55, 190, 176, 0.7), inset 0 4px 8px rgba(219, 245, 240, 0.9), inset 0 -4px 8px rgba(55, 190, 176, 0.9)">
+                    <button class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-xl gap-x-3 gap-y-3 items-center justify-between" style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
                         <span class="text-sm font-medium tracking-tight text-zinc-900">
                             Explore Components
                         </span>
@@ -838,7 +838,7 @@
                  <div class="relative w-16 h-16 mb-4">
                      <svg class="animate-spin w-full h-full text-zinc-200" viewBox="0 0 24 24">
                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
-                         <path class="opacity-75" fill="#14b8a6" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                         <path class="opacity-75" fill="#0086bd" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                      </svg>
                      <div class="absolute inset-0 flex items-center justify-center">
                          <span class="iconify w-6 h-6 text-tiffany-500" data-icon="solar:bolt-linear"></span>
