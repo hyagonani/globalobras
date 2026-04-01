@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Design System - Global</title>
+    
+    <!-- Scripts from op1 & op2 -->
+    <script src="assets/resource_3fa48481346f.js"></script>
+    <script src="assets/iconify_654a1ef798a3.js"></script>
+    <script src="assets/lucide_latest_2eebd0ebe8c2.js"></script>
+    
+    <!-- CSS from op1 & op2 -->
+    <link href="assets/css2_d532a689d235.css" rel="stylesheet"/>
+    <link href="assets/css2_19fd9cc6b396.css" rel="stylesheet"/>
+    
+    <!-- Using Tailwind via CDN if allowed, but since op1 has tailwind compiled, let's use standard Tailwind classes. I will also add the custom CSS from op1 and op2. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tiffany: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif !important; 
+            background-color: #fafafa; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea { 
+            font-family: 'Inter', sans-serif !important; 
+        }
+        
+        /* Glass & Curve Effects from OP1 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.70);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations & Grid from OP2 */
+        :root {
+            --gx-1: 10%;
+            --gx-2: 30%;
+            --gx-3: 70%;
+            --gx-4: 90%;
+            --gy-1: 15vh;
+            --gy-2: 60vh;
+            --grid-color: rgba(20, 184, 166, 0.08); /* Tiffany tint */
+            --beam-color: #14b8a6; /* Tiffany 500 */
+        }
+        .grid-line-v {
+            position: absolute;
+            top: 0; bottom: 0; width: 1px;
+            background: var(--grid-color); z-index: 0;
+        }
+        .grid-line-h {
+            position: absolute;
+            left: 0; right: 0; height: 1px;
+            background: var(--grid-color); z-index: 0;
+        }
+        
+        @keyframes reveal-up {
+            0% { clip-path: inset(100% 0 0 0); transform: translateY(20px); opacity: 0; }
+            100% { clip-path: inset(0 0 0 0); transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        
+        .animate-reveal { opacity: 0; animation: reveal-up 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .scroll-reveal { 
+            opacity: 1; /* Forced visible for debugging/reliability */
+            transform: translateY(0);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+        /* Fallback if JS observer fails */
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-reveal { opacity: 1; transform: none; }
+        }
+        
+        .delay-100 { animation-delay: 0.1s; transition-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; transition-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; transition-delay: 0.3s; }
+        .delay-500 { animation-delay: 0.5s; transition-delay: 0.5s; }
+
+        /* Beams */
+        @keyframes beam-h { 0% { left: -200px; opacity: 0; } 10%, 90% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+        @keyframes beam-v { 0% { top: -200px; opacity: 0; } 10%, 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        
+        .beam-h { position: absolute; height: 1px; width: 200px; background: linear-gradient(90deg, transparent, var(--beam-color), transparent); z-index: 10; opacity: 0; }
+        .beam-v { position: absolute; width: 1px; height: 200px; background: linear-gradient(180deg, transparent, var(--beam-color), transparent); z-index: 10; opacity: 0; }
+
+        /* Float animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, #14b8a6, #0d9488);
+        }
+        .text-gradient-light {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, #99f6e4, #2dd4bf);
+        }
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+            border-radius: 50%; filter: blur(40px);
+            pointer-events: none; z-index: 0;
+        }
+
+        /* Section Styling */
+        .ds-section {
+            padding: 8rem 0;
+            position: relative;
+        }
+        .ds-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: #14b8a6; margin-bottom: 2rem; display: inline-block;
+            background: rgba(20, 184, 166, 0.1);
+            padding: 0.5rem 1rem; border-radius: 20px;
+        }
+        /* OP1 Button Styles */
+        .btn-op1-primary {
+            background: radial-gradient(circle at 10% 0%, #DBF5F0 0%, #37BEB0 100%) !important;
+            box-shadow: 0 15px 25px -10px rgba(55, 190, 176, 0.7), 
+                        inset 0 4px 8px rgba(219, 245, 240, 0.9), 
+                        inset 0 -4px 8px rgba(55, 190, 176, 0.9) !important;
+            border: none !important;
+            color: #0f172a !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-op1-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(55, 190, 176, 0.8), 
+                        inset 0 4px 8px rgba(219, 245, 240, 0.9), 
+                        inset 0 -4px 8px rgba(55, 190, 176, 0.9) !important;
+        }
+        .btn-op1-secondary {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%) !important;
+            box-shadow: 0 18px 35px rgba(31, 41, 55, 0.15), 0 0 0 1px rgba(209, 213, 219, 0.3) !important;
+            border: none !important;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-op1-secondary::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4));
+            pointer-events: none;
+        }
+
+        /* Curve separators from OP1 */
+        .curve-separator {
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='60' viewBox='0 0 20 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 1C18 1 1 15 1 30C1 45 18 59 18 59' stroke='%23CBD5E1' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 40px;
+        }
+        /* Carousel from OP1 */
+        .carousel-track {
+            animation: vertical-scroll 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        @keyframes vertical-scroll {
+            0%, 25% { transform: translateY(0); }
+            33.33%, 58.33% { transform: translateY(-33.33%); }
+            66.66%, 91.66% { transform: translateY(-66.66%); }
+            100% { transform: translateY(0); }
+        }
+        /* Border gradient from OP1 */
+        [style*="--border-gradient"]::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: var(--border-radius-before, inherit);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background: var(--border-gradient);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-zinc-50 text-slate-800 min-h-screen relative overflow-x-hidden antialiased">
+
+<!-- Ambient Background Glows -->
+<div class="ambient-glow top-0 left-[-200px]"></div>
+<div class="ambient-glow top-[40%] right-[-200px]"></div>
+<div class="ambient-glow bottom-0 left-[20%]"></div>
+
+<!-- Background Grid Lines for Context -->
+<div class="fixed inset-0 z-0 pointer-events-none hidden lg:block h-screen">
+    <div class="grid-line-v" style="left: var(--gx-1)">
+        <div class="beam-v" style="animation: beam-v 8s infinite 2s;"></div>
+    </div>
+    <div class="grid-line-v" style="left: var(--gx-2)"></div>
+    <div class="grid-line-v" style="left: var(--gx-3)">
+        <div class="beam-v" style="animation: beam-v 6s infinite 4s;"></div>
+    </div>
+    <div class="grid-line-v" style="left: var(--gx-4)"></div>
+    <div class="grid-line-h" style="top: var(--gy-1)">
+        <div class="beam-h" style="animation: beam-h 10s infinite 1s;"></div>
+    </div>
+    <div class="grid-line-h" style="top: var(--gy-2)"></div>
+</div>
+
+<!-- Navigation (Tiffany Glass Blur) -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all" style="background: radial-gradient(circle at 10% 0%, rgba(219, 245, 240, 0.85) 0%, rgba(55, 190, 176, 0.65) 100%); border-color: rgba(55, 190, 176, 0.2); box-shadow: 0 8px 32px -8px rgba(55, 190, 176, 0.25), inset 0 2px 4px rgba(219, 245, 240, 0.6), inset 0 -1px 3px rgba(55, 190, 176, 0.3);">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
+        <div class="flex items-center gap-3 text-zinc-900 flex-shrink-0 group cursor-pointer">
+            <div class="flex text-white bg-gradient-to-br from-tiffany-600 to-tiffany-700 w-10 h-10 rounded-xl items-center justify-center shadow-lg shadow-tiffany-600/30 group-hover:scale-105 transition-transform">
+                <span class="iconify w-6 h-6" data-icon="solar:layers-minimalistic-bold-duotone"></span>
+            </div>
+            <span class="text-xl font-semibold tracking-tight font-display">Global<span class="text-zinc-500 font-light ml-1">UI</span></span>
+        </div>
+        <div class="hidden md:flex gap-8 text-[11px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
+            <a href="#hero" class="hover:text-zinc-900 transition-colors duration-300">Hero</a>
+            <a href="#typography" class="hover:text-zinc-900 transition-colors duration-300">Typography</a>
+            <a href="#colors" class="hover:text-zinc-900 transition-colors duration-300">Colors</a>
+            <a href="#components" class="hover:text-zinc-900 transition-colors duration-300">Components</a>
+            <a href="#animations" class="hover:text-zinc-900 transition-colors duration-300">Animations</a>
+        </div>
+        <button class="hover:bg-zinc-50 hover:text-zinc- transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] gap-x-2 gap-y-2 items-center" style="box-shadow: 0 18px 35px rgba(31, 41, 55, 0.25), 0 0 0 1px rgba(209, 213, 219, 0.3); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
+            <span class="text-sm font-medium text-black/60 tracking-tight">Download Assets</span>
+            <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Main Container -->
+<main class="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-8 pt-24 pb-20">
+
+    <!-- 0) HERO SECTION (OP1 Clone) -->
+    <section id="hero" class="mb-24">
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 h-full flex-grow relative z-10 pb-8 lg:pb-0">
+            <!-- Left Column: Text Content -->
+            <div class="lg:col-span-7 flex flex-col pt-4 relative justify-center">
+                <!-- Social Proof Pill -->
+                <div class="inline-flex bg-white/60 w-max rounded-full mb-8 pt-1.5 pr-5 pb-1.5 pl-1.5 shadow-sm backdrop-blur-sm items-center" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)); --border-radius-before: 9999px">
+                    <div class="flex -space-x-2 mr-3">
+                        <img alt="User" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="assets/578a5bc5-2c9f-4285-8ae6-0d7daf_33d785f5e92f.webp"/>
+                        <img alt="User" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="assets/1a99aa12-9c50-44fe-bb7d-5dfef2_d7bfbddcb034.webp"/>
+                        <img alt="User" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="assets/2e91b8c7-be64-41b5-8bd8-75efab_c57d7cf9ede8.webp"/>
+                        <div class="w-6 h-6 rounded-full border-2 border-white bg-zinc-900 text-white flex items-center justify-center text-[9px] font-bold tracking-tighter">2k+</div>
+                    </div>
+                    <span class="text-xs font-medium text-zinc-600 tracking-wide">
+                        <span class="text-zinc-900">Design System</span> showcase
+                    </span>
+                </div>
+                <!-- Headline -->
+                <h1 class="leading-[0.95] lg:text-[5rem] text-5xl font-medium text-zinc-900 tracking-tighter mb-8">
+                    Design System
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-100 via-tiffany-300 to-tiffany-500 font-light">Pattern Library</span>
+                </h1>
+                <!-- Subheadline -->
+                <p class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6">
+                    A comprehensive reference guide documenting all design patterns, components, and styles used throughout the platform. Use this as your single source of truth for consistent implementation.
+                </p>
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 lg:mb-24 mb-16 gap-x-3 gap-y-3">
+                    <button class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-xl gap-x-3 gap-y-3 items-center justify-between" style="background: radial-gradient(circle at 10% 0%, #DBF5F0 0%, #37BEB0 100%); box-shadow: 0 15px 25px -10px rgba(55, 190, 176, 0.7), inset 0 4px 8px rgba(219, 245, 240, 0.9), inset 0 -4px 8px rgba(55, 190, 176, 0.9)">
+                        <span class="text-sm font-medium tracking-tight text-zinc-900">
+                            Explore Components
+                        </span>
+                        <span class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1">
+                            <svg class="group-hover:translate-x-1 transition-transform" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="color: rgb(15, 23, 42);" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                        </span>
+                    </button>
+                    <button class="hover:bg-zinc-50 hover:text-zinc- transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] gap-x-2 gap-y-2 items-center" style="box-shadow: 0 18px 35px rgba(31, 41, 55, 0.25), 0 0 0 1px rgba(209, 213, 219, 0.3); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
+                        <span class="text-sm font-medium text-black/60 tracking-tight">
+                            View Examples
+                        </span>
+                        <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                <!-- Footer Stats with Curved Lines -->
+                <div class="flex flex-wrap gap-2 md:gap-6 mt-auto gap-x-2 gap-y-2 items-center">
+                    <div class="flex items-center group cursor-default">
+                        <div class="px-1 text-center">
+                            <p class="text-[10px] font-semibold text-zinc-400 uppercase tracking-widest mb-1 group-hover:text-zinc-600 transition-colors">Sections</p>
+                            <p class="text-sm text-zinc-900 font-medium">7</p>
+                        </div>
+                        <div class="curve-separator opacity-60 ml-4 md:ml-8"></div>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <div class="px-1 text-center">
+                            <p class="text-[10px] font-semibold text-zinc-400 uppercase tracking-widest mb-1 group-hover:text-zinc-600 transition-colors">Components</p>
+                            <p class="text-sm text-zinc-900 font-medium">20+</p>
+                        </div>
+                        <div class="curve-separator md:ml-8 opacity-60 ml-4"></div>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <div class="px-1 text-center">
+                            <p class="text-[10px] font-semibold text-zinc-400 uppercase tracking-widest mb-1 group-hover:text-zinc-600 transition-colors">Patterns</p>
+                            <p class="text-sm text-zinc-900 font-medium">Complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Visual Card -->
+            <div class="lg:col-span-5 h-full min-h-[400px] lg:min-h-0 relative group">
+                <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20">
+                    <!-- Background Asset -->
+                    <img alt="Design system visual" class="transition-transform duration-[2s] ease-in-out group-hover:scale-110 filter saturate-[0.8] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="https://olimpoconstrutora.com.br/wp-content/uploads/2025/03/obra-revitalizacao-de-fachada-pilotis-brasilia-62.png"/>
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                    <!-- Overlay Content Container -->
+                    <div class="flex flex-col pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-between">
+                        <!-- Top Row: Status Badges -->
+                        <div class="flex items-start justify-between">
+                            <div class="flex gap-2 bg-gradient-to-b from-white/10 to-white/0 rounded-full pt-1.5 pr-3 pb-1.5 pl-3 gap-x-2 gap-y-2 items-center" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 9999px">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tiffany-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span>
+                                </span>
+                                <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Live System</span>
+                            </div>
+                            <div class="flex hover:bg-white/20 transition-colors cursor-pointer text-white bg-gradient-to-b from-white/10 to-white/0 w-10 h-10 rounded-full items-center justify-center" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 9999px">
+                                <svg class="lucide lucide-bell" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+                            </div>
+                        </div>
+                        <!-- Middle: Floating Widget -->
+                        <div class="self-end transform group-hover:translate-y-0 transition-transform duration-700 ease-out bg-gradient-to-b from-white/10 to-white/0 w-full max-w-[240px] rounded-xl mt-60 pt-4 pr-4 pb-4 pl-4 backdrop-blur translate-y-4" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 12px">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-full bg-tiffany-500 flex items-center justify-center text-white text-[10px] font-bold">DS</div>
+                                    <span class="text-xs text-white font-medium">Components</span>
+                                </div>
+                                <span class="text-[10px] text-tiffany-400 font-mono">+100%</span>
+                            </div>
+                            <div class="h-12 w-full mb-2 flex items-end gap-1">
+                                <div class="w-1/5 bg-white/20 rounded-t-sm h-[40%]"></div>
+                                <div class="w-1/5 bg-white/20 rounded-t-sm h-[70%]"></div>
+                                <div class="w-1/5 bg-white/20 rounded-t-sm h-[50%]"></div>
+                                <div class="w-1/5 bg-white/30 rounded-t-sm h-[85%]"></div>
+                                <div class="w-1/5 bg-tiffany-500 rounded-t-sm h-[95%] shadow-[0_0_10px_rgba(55,190,176,0.5)]"></div>
+                            </div>
+                            <div class="flex justify-between items-end">
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] text-white/60 uppercase">Components</span>
+                                    <span class="text-sm text-white font-mono font-medium">20+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bottom: Animated Carousel -->
+                        <div class="overflow-hidden w-full h-[100px] border-white/10 rounded-xl border-t mt-auto pt-4 relative">
+                            <div class="carousel-track flex flex-col h-[300px]">
+                                <div class="flex flex-col h-[100px] justify-start">
+                                    <div class="flex gap-3 mb-2 gap-x-3 gap-y-3 items-center">
+                                        <img alt="Reviewer" class="w-8 h-8 rounded-full object-cover border border-white/20" src="assets/7b1ee7e8-7554-433d-a435-029da3_9bd09ac29fdb.webp"/>
+                                        <div class="flex flex-col">
+                                            <span class="text-white text-xs font-semibold tracking-wide">Design System</span>
+                                            <span class="text-white/50 text-[9px] uppercase tracking-wider">Pattern Library</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/80 text-xs font-light leading-relaxed line-clamp-2">
+                                        "A complete reference for all design patterns. Every component documented with usage guidelines."
+                                    </p>
+                                </div>
+                                <div class="h-[100px] flex flex-col justify-start">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <img alt="Reviewer" class="w-8 h-8 rounded-full object-cover border border-white/20" src="assets/b3f17582-5cb8-4efd-895a-b59c93_5343306160e6.webp"/>
+                                        <div class="flex flex-col">
+                                            <span class="text-white text-xs font-semibold tracking-wide">Component Showcase</span>
+                                            <span class="text-white/50 text-[9px] uppercase tracking-wider">UI Elements</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/80 text-xs font-light leading-relaxed line-clamp-2">
+                                        "Every UI component with live examples and code snippets. Perfect for maintaining consistency."
+                                    </p>
+                                </div>
+                                <div class="h-[100px] flex flex-col justify-start">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <img alt="Reviewer" class="w-8 h-8 rounded-full object-cover border border-white/20" src="assets/08cf0e21-ab10-49b1-b896-e0bfbc_49a8ee583926.webp"/>
+                                        <div class="flex flex-col">
+                                            <span class="text-white text-xs font-semibold tracking-wide">Design Tokens</span>
+                                            <span class="text-white/50 text-[9px] uppercase tracking-wider">Typography & Colors</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/80 text-xs font-light leading-relaxed line-clamp-2">
+                                        "All design tokens documented with specifications. Colors, typography, spacing, and more."
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-zinc-900/0 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-zinc-900/50 to-transparent pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 1) TYPOGRAPHY SECTION -->
+    <section class="ds-section scroll-reveal" id="typography">
+        <span class="ds-label">01 / Typography</span>
+        <div class="mb-12">
+            <h2 class="text-4xl lg:text-5xl font-semibold text-zinc-900 tracking-tight mb-4">Typography System</h2>
+            <p class="text-zinc-500 max-w-2xl font-normal leading-relaxed">
+                Clear hierarchy and legible sizes. Using Inter for both display and body copy to match the GenLabs aesthetic.
+            </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 lg:p-12 space-y-12 shadow-sm">
+            <!-- H1 -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-100 pb-8 gap-4 group">
+                <div class="w-full md:w-1/4">
+                    <p class="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-1">Heading 1</p>
+                    <p class="text-xs text-zinc-400 font-mono">Inter</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h1 class="text-5xl lg:text-7xl font-semibold text-zinc-900 tracking-tight leading-[1.05] group-hover:text-tiffany-600 transition-colors">
+                        Display Large
+                    </h1>
+                </div>
+                <div class="w-full md:w-1/4 text-left md:text-right">
+                    <span class="inline-block px-3 py-1 bg-zinc-100 rounded text-xs font-mono text-zinc-500">72px / 1.05 / -0.02em</span>
+                </div>
+            </div>
+
+            <!-- H2 -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-100 pb-8 gap-4 group">
+                <div class="w-full md:w-1/4">
+                    <p class="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-1">Heading 2</p>
+                    <p class="text-xs text-zinc-400 font-mono">Inter</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-zinc-900 tracking-tight leading-[1.1] group-hover:text-tiffany-600 transition-colors">
+                        Section Title
+                    </h2>
+                </div>
+                <div class="w-full md:w-1/4 text-left md:text-right">
+                    <span class="inline-block px-3 py-1 bg-zinc-100 rounded text-xs font-mono text-zinc-500">48px / 1.1 / -0.01em</span>
+                </div>
+            </div>
+
+            <!-- Body Large -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between border-b border-zinc-100 pb-8 gap-4 group">
+                <div class="w-full md:w-1/4">
+                    <p class="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-1">Body Large</p>
+                    <p class="text-xs text-zinc-400 font-mono">Inter</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-lg lg:text-xl text-zinc-600 font-normal leading-relaxed group-hover:text-zinc-900 transition-colors">
+                        Used for introductory paragraphs and emphasized text that needs to stand out without competing with headings.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/4 text-left md:text-right">
+                    <span class="inline-block px-3 py-1 bg-zinc-100 rounded text-xs font-mono text-zinc-500">20px / 1.6 / 0em</span>
+                </div>
+            </div>
+
+            <!-- Body Regular -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between pb-4 gap-4 group">
+                <div class="w-full md:w-1/4">
+                    <p class="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-1">Body Reg</p>
+                    <p class="text-xs text-zinc-400 font-mono">Inter</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-base text-zinc-500 font-normal leading-relaxed group-hover:text-zinc-800 transition-colors">
+                        The standard typography for all long-form reading, documentation, and general UI text. Engineered for maximum legibility.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/4 text-left md:text-right">
+                    <span class="inline-block px-3 py-1 bg-zinc-100 rounded text-xs font-mono text-zinc-500">16px / 1.5 / 0em</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2) COLOR SYSTEM -->
+    <section class="ds-section scroll-reveal" id="colors">
+        <span class="ds-label">02 / Color System</span>
+        <div class="mb-12">
+            <h2 class="text-4xl lg:text-5xl font-semibold text-zinc-900 tracking-tight font-display mb-4">Color Palette</h2>
+            <p class="text-zinc-500 max-w-2xl font-normal leading-relaxed">
+                A pristine base of white and neutral grays, brought to life with vibrant Tiffany blue accents and meticulously crafted gradients.
+            </p>
+        </div>
+
+        <div class="space-y-12">
+            <!-- Tiffany Primary -->
+            <div>
+                <h3 class="text-lg font-semibold font-display text-zinc-800 mb-6 flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-tiffany-500"></span> Primary Brand (Tiffany)
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 border border-zinc-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-24 bg-tiffany-50 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-tiffany-900">50</span></div>
+                    <div class="h-24 bg-tiffany-100 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-tiffany-900">100</span></div>
+                    <div class="h-24 bg-tiffany-200 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-tiffany-900">200</span></div>
+                    <div class="h-24 bg-tiffany-300 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-tiffany-900">300</span></div>
+                    <div class="h-24 bg-tiffany-400 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-tiffany-900">400</span></div>
+                    <div class="h-24 bg-tiffany-500 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white font-bold">500 (Base)</span></div>
+                    <div class="h-24 bg-tiffany-600 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">600</span></div>
+                    <div class="h-24 bg-tiffany-700 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">700</span></div>
+                    <div class="h-24 bg-tiffany-800 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">800</span></div>
+                    <div class="h-24 bg-tiffany-900 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">900</span></div>
+                </div>
+            </div>
+
+            <!-- Neutrals -->
+            <div>
+                <h3 class="text-lg font-semibold font-display text-zinc-800 mb-6 flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-zinc-500"></span> Neutral Monochromes
+                </h3>
+                 <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 border border-zinc-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-24 bg-white flex flex-col justify-end p-3 border-r border-zinc-100"><span class="text-[10px] font-mono text-zinc-900">White</span></div>
+                    <div class="h-24 bg-zinc-50 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-zinc-900">50</span></div>
+                    <div class="h-24 bg-zinc-100 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-zinc-900">100</span></div>
+                    <div class="h-24 bg-zinc-200 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-zinc-900">200</span></div>
+                    <div class="h-24 bg-zinc-300 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-zinc-900">300</span></div>
+                    <div class="h-24 bg-zinc-500 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">500</span></div>
+                    <div class="h-24 bg-zinc-600 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">600</span></div>
+                    <div class="h-24 bg-zinc-700 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">700</span></div>
+                    <div class="h-24 bg-zinc-800 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white">800</span></div>
+                    <div class="h-24 bg-zinc-900 flex flex-col justify-end p-3"><span class="text-[10px] font-mono text-white font-bold">900 (Text)</span></div>
+                </div>
+            </div>
+
+            <!-- Gradients -->
+            <div>
+                <h3 class="text-lg font-semibold font-display text-zinc-800 mb-6">Semantic Gradients</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="h-32 rounded-2xl bg-gradient-to-tr from-tiffany-600 to-tiffany-400 flex items-end p-6 shadow-lg shadow-tiffany-500/20 hover:scale-105 transition-transform cursor-pointer">
+                        <div>
+                            <p class="text-white font-semibold mb-1">Brand Main</p>
+                            <p class="text-white/70 text-xs font-mono">from-tiffany-600 to-tiffany-400</p>
+                        </div>
+                    </div>
+                    
+                    <div class="h-32 rounded-2xl bg-gradient-to-r from-zinc-900 to-zinc-700 flex items-end p-6 shadow-lg shadow-zinc-900/20 hover:scale-105 transition-transform cursor-pointer">
+                        <div>
+                            <p class="text-white font-semibold mb-1">Dark Surface</p>
+                            <p class="text-white/70 text-xs font-mono">from-zinc-900 to-zinc-700</p>
+                        </div>
+                    </div>
+
+                    <div class="h-32 rounded-2xl bg-gradient-to-br from-white via-white/80 to-zinc-100 flex items-end p-6 shadow-sm border border-white hover:scale-105 transition-transform cursor-pointer glass-card">
+                        <div>
+                            <p class="text-zinc-800 font-semibold mb-1">Light Glass</p>
+                            <p class="text-zinc-500 text-xs font-mono">bg-white/80 backdrop-blur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) UI COMPONENTS -->
+    <section class="ds-section scroll-reveal" id="components">
+        <span class="ds-label">03 / UI Components</span>
+        <div class="mb-12">
+            <h2 class="text-4xl lg:text-5xl font-semibold text-zinc-900 tracking-tight font-display mb-4">Interactive Elements</h2>
+            <p class="text-zinc-500 max-w-2xl font-normal leading-relaxed">
+                A collection of beautiful, accessible, and highly interactive components. Notice the subtle micro-animations and glow effects on interaction.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Cards Column -->
+            <div class="space-y-12">
+                <!-- Badges -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-sm font-semibold font-display text-zinc-900 border-b border-zinc-200 pb-4 mb-6">Badges & Tags</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-3 py-1 bg-tiffany-50 text-tiffany-700 text-xs font-bold uppercase tracking-wider rounded-md border border-tiffany-200">New Feature</span>
+                        <span class="px-3 py-1 bg-zinc-100 text-zinc-600 text-xs font-bold uppercase tracking-wider rounded-full border border-zinc-200">In Progress</span>
+                        <span class="px-3 py-1 bg-zinc-900 text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md">Premium</span>
+                        
+                        <!-- Glow badge -->
+                        <span class="relative group">
+                            <span class="absolute -inset-0.5 bg-gradient-to-r from-tiffany-400 to-tiffany-600 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-500"></span>
+                            <span class="relative px-4 py-1.5 bg-white text-tiffany-700 text-xs font-bold uppercase tracking-wider rounded-full border border-tiffany-100 flex items-center gap-2">
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span> Special
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Input Fields -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-sm font-semibold font-display text-zinc-900 border-b border-zinc-200 pb-4 mb-6">Form & Inputs</h4>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-600 uppercase tracking-widest mb-2">Email Address</label>
+                            <div class="relative group">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <span class="iconify w-5 h-5 text-zinc-400 group-focus-within:text-tiffany-500 transition-colors" data-icon="solar:letter-linear"></span>
+                                </div>
+                                <input type="email" class="w-full bg-white border border-zinc-200 rounded-xl py-3.5 pl-11 pr-4 text-sm text-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:border-tiffany-500 focus:ring-4 focus:ring-tiffany-500/10 transition-all shadow-sm" placeholder="you@company.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-600 uppercase tracking-widest mb-2">Select Option</label>
+                            <div class="relative">
+                                <select class="appearance-none w-full bg-white border border-zinc-200 rounded-xl py-3.5 pl-4 pr-10 text-sm text-zinc-800 focus:outline-none focus:border-tiffany-500 focus:ring-4 focus:ring-tiffany-500/10 transition-all shadow-sm">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-500">
+                                    <span class="iconify w-4 h-4" data-icon="solar:alt-arrow-down-linear"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modals/Tooltips abstract -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                    <h4 class="text-sm font-semibold font-display text-zinc-900 border-b border-zinc-200 pb-4 mb-6">Tooltips & Popovers</h4>
+                    
+                    <div class="h-40 flex items-center justify-center bg-zinc-50 rounded-xl border border-dashed border-zinc-300">
+                        <!-- Tooltip trigger -->
+                        <div class="relative group inline-block">
+                            <button class="w-10 h-10 rounded-full bg-white border border-zinc-200 shadow hover:border-tiffany-300 hover:text-tiffany-600 flex items-center justify-center transition-colors">
+                                <span class="iconify w-5 h-5" data-icon="solar:info-circle-linear"></span>
+                            </button>
+                            
+                            <!-- Tooltip body -->
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover:opacity-100 transition-all transform group-hover:-translate-y-1 group-hover:duration-300 pointer-events-none z-20">
+                                <div class="bg-zinc-900 text-white text-xs p-3 rounded-lg shadow-xl relative">
+                                    Interactive tooltip with detailed contextual information.
+                                    <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons & Complex Cards -->
+            <div class="space-y-12">
+                
+                <!-- Buttons -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-sm font-semibold font-display text-zinc-900 border-b border-zinc-200 pb-4 mb-6">Buttons</h4>
+                    
+                    <div class="flex flex-col gap-6">
+                <!-- Glow / Primary Button -->
+                <div class="flex items-center justify-between">
+                    <button class="btn-op1-primary px-8 py-3 text-zinc-900 text-sm font-bold rounded-full transition-all active:scale-95 flex items-center gap-2 group">
+                        Primary Action
+                        <div class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1">
+                             <span class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform" data-icon="solar:arrow-right-linear"></span>
+                        </div>
+                    </button>
+                    <span class="text-xs font-mono text-zinc-400">Radial Gradient / Deep Shadow</span>
+                </div>
+
+                <!-- Secondary -->
+                <div class="flex items-center justify-between">
+                    <button class="btn-op1-secondary px-8 py-3 text-zinc-600 text-sm font-semibold rounded-full transition-all active:scale-95 flex items-center gap-2">
+                        Secondary Action
+                        <span class="iconify w-4 h-4 text-zinc-500" data-icon="solar:arrow-right-linear"></span>
+                    </button>
+                    <span class="text-xs font-mono text-zinc-400">Gradient Border / Inner Shadow</span>
+                </div>
+
+                        <!-- Ghost/Subtle -->
+                        <div class="flex items-center justify-between">
+                            <button class="px-6 py-3 text-zinc-600 text-sm font-semibold rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-colors">
+                                Subtle Button
+                            </button>
+                            <span class="text-xs font-mono text-zinc-400">Ghost</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complex Cards -->
+                <div class="glass-card p-1 rounded-2xl">
+                    <div class="bg-white p-7 rounded-[15px]">
+                        <h4 class="text-sm font-semibold font-display text-zinc-900 border-b border-zinc-200 pb-4 mb-6">Complex Components</h4>
+                        
+                        <!-- Rich Card -->
+                        <div class="group border border-zinc-100 hover:border-tiffany-200 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-tiffany-500/5 bg-white relative overflow-hidden">
+                            <!-- Hover gradient accent line -->
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-400 to-tiffany-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                            
+                            <div class="flex gap-4 items-start">
+                                <div class="w-12 h-12 rounded-lg bg-tiffany-50 flex items-center justify-center text-tiffany-600 group-hover:bg-tiffany-500 group-hover:text-white transition-colors duration-300 shrink-0">
+                                    <span class="iconify w-6 h-6" data-icon="solar:chart-square-linear"></span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="font-semibold text-zinc-900 text-lg">Analytics Dashboard</h3>
+                                        <span class="bg-zinc-100 text-zinc-500 text-[10px] uppercase tracking-wider px-2 py-1 rounded font-bold">Pro</span>
+                                    </div>
+                                    <p class="text-zinc-500 text-sm font-normal leading-relaxed mb-4">
+                                        Real-time metrics, advanced filtering, and predictive insights powered by AI.
+                                    </p>
+                                    
+                                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
+                                        <div class="flex -space-x-2">
+                                            <div class="w-7 h-7 rounded-full bg-zinc-200 border-2 border-white shadow-sm"></div>
+                                            <div class="w-7 h-7 rounded-full bg-tiffany-200 border-2 border-white shadow-sm"></div>
+                                            <div class="w-7 h-7 rounded-full bg-zinc-800 border-2 border-white flex items-center justify-center text-[8px] text-white font-bold">+2</div>
+                                        </div>
+                                        <button class="text-xs font-semibold text-tiffany-600 group-hover:text-tiffany-700 flex items-center gap-1">
+                                            View Report <span class="iconify w-3.5 h-3.5" data-icon="solar:arrow-right-linear"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) ICONS AND ANIMATIONS -->
+    <section class="ds-section scroll-reveal" id="animations">
+        <span class="ds-label">04 / Icons & Motion</span>
+        <div class="mb-12">
+            <h2 class="text-4xl lg:text-5xl font-semibold text-zinc-900 tracking-tight font-display mb-4">Micro-Interactions</h2>
+            <p class="text-zinc-500 max-w-2xl font-normal leading-relaxed">
+                Consistent animation curves and premium icon set (Solar Icons) to provide tactile feedback.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Icon Set showcase -->
+            <div class="glass-card rounded-2xl p-8 col-span-1 md:col-span-2 hover:-translate-y-1 transition-transform">
+                 <h4 class="text-sm font-semibold font-display text-zinc-900 mb-6">Icon Library Preview</h4>
+                 <div class="flex flex-wrap gap-8">
+                     <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                         <div class="w-12 h-12 bg-white rounded-xl border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:border-tiffany-400 group-hover:text-tiffany-500 transition-all shadow-sm">
+                             <span class="iconify w-6 h-6" data-icon="solar:home-smile-linear"></span>
+                         </div>
+                         <span class="text-[10px] font-mono text-zinc-400">home</span>
+                     </div>
+                     <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                         <div class="w-12 h-12 bg-white rounded-xl border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:border-tiffany-400 group-hover:text-tiffany-500 transition-all shadow-sm">
+                             <span class="iconify w-6 h-6" data-icon="solar:settings-linear"></span>
+                         </div>
+                         <span class="text-[10px] font-mono text-zinc-400">settings</span>
+                     </div>
+                     <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                         <div class="w-12 h-12 bg-white rounded-xl border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:border-tiffany-400 group-hover:text-tiffany-500 transition-all shadow-sm">
+                             <span class="iconify w-6 h-6" data-icon="solar:user-circle-linear"></span>
+                         </div>
+                         <span class="text-[10px] font-mono text-zinc-400">profile</span>
+                     </div>
+                     <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                         <div class="w-12 h-12 bg-white rounded-xl border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:border-tiffany-400 group-hover:text-tiffany-500 transition-all shadow-sm">
+                             <span class="iconify w-6 h-6" data-icon="solar:chat-round-dots-linear"></span>
+                         </div>
+                         <span class="text-[10px] font-mono text-zinc-400">chat</span>
+                     </div>
+                     <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                         <div class="w-12 h-12 bg-white rounded-xl border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:border-tiffany-400 group-hover:text-tiffany-500 transition-all shadow-sm">
+                             <span class="iconify w-6 h-6" data-icon="solar:bell-bing-linear"></span>
+                         </div>
+                         <span class="text-[10px] font-mono text-zinc-400">alerts</span>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Loader/Spinner -->
+            <div class="glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center">
+                 <div class="relative w-16 h-16 mb-4">
+                     <svg class="animate-spin w-full h-full text-zinc-200" viewBox="0 0 24 24">
+                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                         <path class="opacity-75" fill="#14b8a6" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                     </svg>
+                     <div class="absolute inset-0 flex items-center justify-center">
+                         <span class="iconify w-6 h-6 text-tiffany-500" data-icon="solar:bolt-linear"></span>
+                     </div>
+                 </div>
+                 <h4 class="text-sm font-semibold font-display text-zinc-900">Loading State</h4>
+                 <p class="text-[10px] text-zinc-400 font-mono mt-1">Spin & Pulse</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="relative z-10 border-t border-zinc-200 bg-white pt-16 pb-8 px-6 text-center">
+    <div class="flex items-center justify-center gap-2 text-zinc-900 mb-6">
+        <div class="flex text-white bg-gradient-to-br from-tiffany-500 to-tiffany-600 w-8 h-8 rounded-lg items-center justify-center shadow-md">
+            <span class="iconify w-4 h-4" data-icon="solar:layers-minimalistic-bold-duotone"></span>
+        </div>
+        <span class="text-lg font-semibold tracking-tight font-display">Global<span class="text-zinc-400 font-light ml-1">UI</span></span>
+    </div>
+    <p class="text-zinc-400 text-sm mb-2">Designed for maximum aesthetics, usability, and performance.</p>
+    <p class="text-zinc-300 text-xs font-mono">© 2026 Global Design System. All rights reserved.</p>
+</footer>
+
+<script>
+    // Initialize icons
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    }
+
+    // Scroll Reveal Intersection Observer - Robust Version
+    (function() {
+        function initReveal() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            // Standard Observer
+            if ('IntersectionObserver' in window) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '50px',
+                    threshold: 0.05
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                reveals.forEach(el => observer.observe(el));
+            } else {
+                // Fallback for very old browsers
+                reveals.forEach(el => el.classList.add('is-visible'));
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initReveal);
+        } else {
+            initReveal();
+        }
+    })();
+</script>
+
+</body>
+</html>
