@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Global Obras e Serviços - Revitalização de Fachadas</title>
+    
+    <!-- Tailwind CSS & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tiffany: {
+                            50: '#e8f4fa',
+                            100: '#c5e4f3',
+                            200: '#9fd3ec',
+                            300: '#6fbfe4',
+                            400: '#3daddc',
+                            500: '#0086bd',
+                            600: '#006d99',
+                            700: '#005475',
+                            800: '#003b52',
+                            900: '#00232f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        body { 
+            background-color: #fafafa; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Glassmorphism Classes do Design System */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Grid and Beams do Design System */
+        :root {
+            --gx-1: 10%;
+            --gx-2: 30%;
+            --gx-3: 70%;
+            --gx-4: 90%;
+            --grid-color: rgba(0, 134, 189, 0.08); /* Brand tint */
+            --beam-color: #0086bd; /* Brand 500 */
+        }
+        .grid-line-v {
+            position: absolute; top: 0; bottom: 0; width: 1px;
+            background: var(--grid-color); z-index: 0;
+        }
+
+        /* OP1 Primary Button Exato do Design System */
+        .btn-op1-primary {
+            background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%) !important;
+            box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), 
+                        inset 0 4px 8px rgba(214, 237, 247, 0.9), 
+                        inset 0 -4px 8px rgba(0, 134, 189, 0.9) !important;
+            border: none !important;
+            color: #0f172a !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-op1-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(0, 134, 189, 0.8), 
+                        inset 0 4px 8px rgba(214, 237, 247, 0.9), 
+                        inset 0 -4px 8px rgba(0, 134, 189, 0.9) !important;
+        }
+
+        /* Border Gradients Fix from Design System */
+        [style*="--border-gradient"]::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: var(--border-radius-before, inherit);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background: var(--border-gradient);
+            pointer-events: none;
+        }
+
+        /* Animações */
+        @keyframes reveal-up {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-reveal { animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            display: inline-flex;
+            width: max-content;
+        }
+    </style>
+</head>
+<body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased h-screen">
+
+    <!-- Navbar do Design System -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
+            <div class="flex items-center flex-shrink-0 cursor-pointer">
+                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[3rem] w-auto">
+            </div>
+            <div class="hidden md:flex gap-8 text-[11px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
+                <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
+                <a href="#portfolio" class="hover:text-zinc-900 transition-colors duration-300">Portfólio</a>
+                <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Sobre nós</a>
+                <a href="#contato" class="hover:text-zinc-900 transition-colors duration-300">Contato</a>
+            </div>
+            <button class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-full pt-2.5 pr-6 pb-2.5 pl-6 gap-x-2 gap-y-2 items-center" style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
+                <span class="text-sm font-medium text-black/60 tracking-tight">Falar com Especialista</span>
+                <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION FULL-HEIGHT -->
+    <!-- Adicionado pt-24 para compensar a navbar fixa na altura correta no container pai -->
+    <main class="relative w-full h-full flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[80px] lg:pt-0">
+        
+        <!-- ==================== ÁREA DIREITA: BACKGROUND IMAGE ==================== -->
+        <!-- Visível em tela cheia no desktop (atrás da diagonal branca) -->
+        <div class="hidden lg:block absolute inset-0 w-full h-full z-0">
+            <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
+            <!-- Camada de escurecimento sutil (opcional) -->
+            <div class="absolute inset-0 bg-black/5"></div>
+        </div>
+
+        <!-- Imagem de fundo no mobile (exibida abaixo do texto) -->
+        <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2">
+            <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
+            <!-- Cartão Flutuante (Floating Image) Mobile -->
+            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-[1.2rem] shadow-xl w-[200px] z-10 bg-white/60 backdrop-blur-md">
+                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação" class="w-full h-auto aspect-[4/5] object-cover rounded-[0.9rem]" />
+            </div>
+        </div>
+
+        <!-- ==================== ÁREA ESQUERDA: CORTADA NA DIAGONAL ==================== -->
+        <!-- Aumentado padding-top lg:pt-24 para manter a leitura limpa logo abaixo da nav -->
+        <div class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] lg:bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] flex flex-col justify-center px-6 py-6 lg:px-[8%] xl:px-[10%] order-1 lg:order-none min-h-[60vh] lg:pt-20">
+            
+            <!-- Grid de fundo da área branca -->
+            <div class="absolute inset-0 pointer-events-none opacity-40 z-0">
+                <div class="grid-line-v" style="left: var(--gx-1)"></div>
+                <div class="grid-line-v" style="left: var(--gx-2)"></div>
+                <div class="grid-line-v" style="left: var(--gx-3)"></div>
+            </div>
+
+            <!-- Conteúdo de Texto -->
+            <div class="relative z-10 max-w-2xl mt-4 lg:mt-0">
+                
+                <h1 class="leading-[1.1] text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold text-zinc-900 tracking-tight mb-6 animate-reveal">
+                    Especialistas em <span class="text-tiffany-500">Revitalização</span> e <span class="text-tiffany-500">Reforma</span> de <span class="text-tiffany-500">Fachadas</span> em Condomínios na <span class="text-tiffany-500">Grande Vitória.</span>
+                </h1>
+                
+                <p class="text-lg lg:text-xl text-zinc-600 font-medium leading-relaxed max-w-xl mb-10 border-l-2 border-zinc-200 pl-4 lg:pl-6 animate-reveal delay-100">
+                    O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de alto padrão para máxima valorização no mercado capixaba.
+                </p>
+                
+                <div class="flex flex-col items-start gap-8 animate-reveal delay-200">
+                    
+                    <!-- Primary CTA (Botão exato do Design System) -->
+                    <button class="btn-op1-primary px-8 py-4 text-zinc-900 text-sm font-bold rounded-full transition-all active:scale-95 flex items-center gap-3 group">
+                        <span class="uppercase tracking-wider">Solicitar Orçamento</span>
+                        <div class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1 -mr-3">
+                             <iconify-icon icon="solar:arrow-right-up-linear" class="w-4 h-4 text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></iconify-icon>
+                        </div>
+                    </button>
+                    
+                    <!-- Prova Social (Avatars e Texto) -->
+                    <div class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-full border border-zinc-100/50">
+                        <div class="flex -space-x-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Síndico" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Gestora" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Morador" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Síndica" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                        </div>
+                        <p class="text-xs lg:text-sm text-zinc-600 font-semibold leading-tight">
+                            Atendimento exclusivo para <br class="hidden sm:block"/> síndicos e gestores prediais.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- ==================== CARTÃO FLUTUANTE (DESKTOP) ==================== -->
+        <!-- Imagem sobreposta flutuante com design card do DS. 
+             Aspecto 0.8 (4/5) alcançado através de relativas w e h aspect-[4/5]
+             Posicionada de forma flexível para alinhar perfeitamente com o centro do texto à esquerda descontando nav e rodapé.
+        -->
+        <div class="hidden lg:flex absolute inset-0 pt-[80px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[10%] z-20 pointer-events-none">
+            <div class="w-[360px] xl:w-[400px] pointer-events-auto glass-card rounded-[2rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-200">
+                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando em rapel nas fachadas" class="w-full h-auto aspect-[4/5] object-cover rounded-[1.5rem]" />
+            </div>
+        </div>
+
+        <!-- ==================== FAIXA INFERIOR (MARQUEE) ==================== -->
+        <div class="absolute bottom-0 left-0 w-full h-[40px] lg:h-[48px] bg-tiffany-900 border-t border-tiffany-800 overflow-hidden flex items-center z-30">
+            <div class="animate-marquee whitespace-nowrap flex gap-4 lg:gap-8 text-tiffany-50 text-[10px] lg:text-xs font-bold tracking-[0.25em] uppercase px-4 pointer-events-none">
+                <span>BLINDANDO SEU CONDOMÍNIO CONTRA O TEMPO E A MARESIA ✦ ELEVANDO O PADRÃO E O VALOR DO SEU METRO QUADRADO ✦ </span>
+                <span>BLINDANDO SEU CONDOMÍNIO CONTRA O TEMPO E A MARESIA ✦ ELEVANDO O PADRÃO E O VALOR DO SEU METRO QUADRADO ✦ </span>
+                <span>BLINDANDO SEU CONDOMÍNIO CONTRA O TEMPO E A MARESIA ✦ ELEVANDO O PADRÃO E O VALOR DO SEU METRO QUADRADO ✦ </span>
+                <span>BLINDANDO SEU CONDOMÍNIO CONTRA O TEMPO E A MARESIA ✦ ELEVANDO O PADRÃO E O VALOR DO SEU METRO QUADRADO ✦ </span>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
