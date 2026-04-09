@@ -111,12 +111,27 @@
 
         /* Animações */
         @keyframes reveal-up {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% { transform: translateY(30px); opacity: 0; filter: blur(10px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0px); }
         }
-        .animate-reveal { animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        @keyframes fade-in-blur {
+            0% { opacity: 0; filter: blur(10px); }
+            100% { opacity: 1; filter: blur(0px); }
+        }
+        .animate-reveal { 
+            animation: reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+            opacity: 0; 
+            will-change: transform, opacity, filter;
+        }
+        .animate-fade-in {
+            animation: fade-in-blur 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            will-change: opacity, filter;
+        }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-500 { animation-delay: 0.5s; }
 
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -132,12 +147,12 @@
 <body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased h-screen">
 
     <!-- Navbar do Design System -->
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all animate-fade-in delay-200" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
             <div class="flex items-center flex-shrink-0 cursor-pointer">
-                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[3rem] w-auto">
+                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[4rem] w-auto">
             </div>
-            <div class="hidden md:flex gap-8 text-[11px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
+            <div class="hidden md:flex gap-8 text-[14px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
                 <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
                 <a href="#portfolio" class="hover:text-zinc-900 transition-colors duration-300">Portfólio</a>
                 <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Sobre nós</a>
@@ -156,7 +171,7 @@
         
         <!-- ==================== ÁREA DIREITA: BACKGROUND IMAGE ==================== -->
         <!-- Visível em tela cheia no desktop (atrás da diagonal branca) -->
-        <div class="hidden lg:block absolute inset-0 w-full h-full z-0">
+        <div class="hidden lg:block absolute inset-0 w-full h-full z-0 animate-fade-in">
             <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
             <!-- Camada de escurecimento sutil (opcional) -->
             <div class="absolute inset-0 bg-black/5"></div>
@@ -166,7 +181,7 @@
         <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2">
             <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
             <!-- Cartão Flutuante (Floating Image) Mobile -->
-            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-[1.2rem] shadow-xl w-[200px] z-10 bg-white/60 backdrop-blur-md">
+            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-[1.2rem] shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md">
                 <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação" class="w-full h-auto aspect-[4/5] object-cover rounded-[0.9rem]" />
             </div>
         </div>
@@ -185,11 +200,11 @@
             <!-- Conteúdo de Texto -->
             <div class="relative z-10 max-w-2xl mt-4 lg:mt-0">
                 
-                <h1 class="leading-[1.1] text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold text-zinc-900 tracking-tight mb-6 animate-reveal">
+                <h1 class="leading-[1.1] text-4xl md:text-[2.75rem] lg:text-[3.25rem] font-bold text-zinc-900 tracking-tight mb-6 animate-reveal">
                     Especialistas em <span class="text-tiffany-500">Revitalização</span> e <span class="text-tiffany-500">Reforma</span> de <span class="text-tiffany-500">Fachadas</span> em Condomínios na <span class="text-tiffany-500">Grande Vitória.</span>
                 </h1>
                 
-                <p class="text-lg lg:text-xl text-zinc-600 font-medium leading-relaxed max-w-xl mb-10 border-l-2 border-zinc-200 pl-4 lg:pl-6 animate-reveal delay-100">
+                <p class="text-base lg:text-lg text-zinc-600 font-medium leading-relaxed max-w-xl mb-10 border-l-2 border-zinc-200 pl-4 lg:pl-6 animate-reveal delay-100">
                     O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de alto padrão para máxima valorização no mercado capixaba.
                 </p>
                 
@@ -226,8 +241,8 @@
              Aspecto 0.8 (4/5) alcançado através de relativas w e h aspect-[4/5]
              Posicionada de forma flexível para alinhar perfeitamente com o centro do texto à esquerda descontando nav e rodapé.
         -->
-        <div class="hidden lg:flex absolute inset-0 pt-[80px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[10%] z-20 pointer-events-none">
-            <div class="w-[360px] xl:w-[400px] pointer-events-auto glass-card rounded-[2rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-200">
+        <div class="hidden lg:flex absolute inset-0 pt-[80px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[8%] z-20 pointer-events-none">
+            <div class="w-[430px] xl:w-[480px] pointer-events-auto glass-card rounded-[2rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-300">
                 <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando em rapel nas fachadas" class="w-full h-auto aspect-[4/5] object-cover rounded-[1.5rem]" />
             </div>
         </div>
