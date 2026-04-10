@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="utf-8" />
@@ -264,23 +264,23 @@
         }
 
         .delay-100 {
-            animation-delay: 0.1s;
+            animation-delay: 0.15s;
         }
 
         .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
             animation-delay: 0.3s;
         }
 
+        .delay-300 {
+            animation-delay: 0.45s;
+        }
+
         .delay-400 {
-            animation-delay: 0.4s;
+            animation-delay: 0.6s;
         }
 
         .delay-500 {
-            animation-delay: 0.5s;
+            animation-delay: 0.75s;
         }
 
         @keyframes marquee {
@@ -327,27 +327,51 @@
     <!-- Navbar do Design System -->
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-2 transition-all animate-fade-in delay-200"
         style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
-        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
-            <div class="flex items-center flex-shrink-0 cursor-pointer">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center flex-shrink-0 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
                 <img src="public/logo-colorida.webp" alt="Global Obras"
                     class="max-h-[3.25rem] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300">
             </div>
-            <div class="hidden md:flex gap-8 text-[12px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
+            <div class="hidden lg:flex gap-4 xl:gap-8 text-[10px] xl:text-[11px] font-semibold text-zinc-700/80 uppercase tracking-widest">
+                <a href="#" class="hover:text-zinc-900 transition-colors duration-300">Home</a>
+                <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Quem Somos</a>
                 <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
+                <a href="#metodologia" class="hover:text-zinc-900 transition-colors duration-300">Metodologia</a>
                 <a href="#portfolio" class="hover:text-zinc-900 transition-colors duration-300">Portfólio</a>
-                <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Sobre nós</a>
+                <a href="#depoimentos" class="hover:text-zinc-900 transition-colors duration-300">Depoimentos</a>
                 <a href="#contato" class="hover:text-zinc-900 transition-colors duration-300">Contato</a>
             </div>
-            <button
-                class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-xs font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-none border border-zinc-300/50 pt-2 pr-5 pb-2 pl-5 gap-x-2 gap-y-2 items-center"
-                style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative;">
-                <span class="text-xs font-medium text-black/60 tracking-tight">Falar com Especialista</span>
-                <svg fill="none" height="14" stroke="#666" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="1.5" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                    class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-xs font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-none border border-zinc-300/50 pt-2 pr-4 pb-2 pl-4 lg:pr-5 lg:pl-5 gap-x-2 gap-y-2 items-center flex-shrink-0"
+                    style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative;">
+                    <span class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight hidden sm:block">Falar com Especialista</span>
+                    <span class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight block sm:hidden">WhatsApp</span>
+                    <svg fill="none" height="14" stroke="#666" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+                
+                <!-- Hamburguer Button -->
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-10 h-[34px] gap-[4px] bg-white/40 border border-white/50 shadow-sm backdrop-blur-md rounded transition-colors active:bg-white/60">
+                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center" id="icon-bar-1"></span>
+                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300" id="icon-bar-2"></span>
+                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center" id="icon-bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Popover Menu Movel -->
+        <div id="mobile-menu" class="absolute top-[100%] left-0 w-full bg-white/95 backdrop-blur-xl border-t border-zinc-200/50 shadow-2xl flex-col items-center py-8 gap-5 lg:hidden origin-top transition-all duration-300 opacity-0 pointer-events-none -translate-y-4 flex">
+            <a href="#" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Home</a>
+            <a href="#sobre" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Quem Somos</a>
+            <a href="#servicos" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Serviços</a>
+            <a href="#metodologia" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Metodologia</a>
+            <a href="#portfolio" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Portfólio</a>
+            <a href="#depoimentos" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Depoimentos</a>
+            <a href="#contato" class="mobile-link text-[12px] font-bold text-tiffany-600 uppercase tracking-widest hover:text-white hover:bg-tiffany-600 transition-colors bg-tiffany-50 border border-tiffany-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Contato</a>
         </div>
     </nav>
 
@@ -365,22 +389,24 @@
             <div class="absolute inset-0 bg-black/5"></div>
         </div>
 
-        <!-- Imagem de fundo no mobile (exibida abaixo do texto) -->
-        <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2 animate-fade-in">
+        <!-- Imagem Hero Mobile com destaque central -->
+        <div class="block lg:hidden w-full h-[55vh] relative z-0 order-1 animate-fade-in flex flex-col items-center justify-center px-6 pt-6 pb-2">
             <img src="public/bg-hero.webp" alt="Revitalização de fachada"
-                class="w-full h-full object-cover object-center" />
-            <!-- Cartão Flutuante (Floating Image) Mobile -->
+                class="absolute inset-0 w-full h-full object-cover object-bottom filter blur-[2px] opacity-70" />
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-900/10 pointer-events-none"></div>
+
+            <!-- Imagem Principal Centralizada ("Cartão Flutuante" escalado e absoluto) -->
             <div
-                class="absolute bottom-4 right-4 glass-card p-1.5 rounded-md shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md animate-reveal delay-200">
+                class="relative w-[92%] max-w-[340px] glass-card p-2 rounded-2xl shadow-2xl z-20 bg-white/90 backdrop-blur-xl border border-white/60 mb-6">
                 <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação"
-                    class="w-full h-auto aspect-[4/5] object-cover rounded-sm" />
+                    class="w-full h-auto aspect-[4/5] object-cover rounded-xl shadow-inner" />
             </div>
         </div>
 
         <!-- ==================== ÁREA ESQUERDA: CORTADA NA DIAGONAL ==================== -->
         <!-- Aumentado padding-top lg:pt-24 para manter a leitura limpa logo abaixo da nav -->
         <div
-            class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] lg:bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] flex flex-col justify-center px-6 py-6 lg:px-[8%] xl:px-[10%] order-1 lg:order-none min-h-[60vh] lg:pt-20">
+            class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] flex flex-col justify-center px-6 py-12 lg:py-6 lg:px-[8%] xl:px-[10%] order-2 lg:order-none min-h-[55vh] lg:pt-20 rounded-t-[2.5rem] lg:rounded-none -mt-8 lg:mt-0 shadow-[0_-15px_40px_rgba(0,0,0,0.06)] lg:shadow-none">
 
             <!-- Grid de fundo da área branca -->
             <div class="absolute inset-0 pointer-events-none opacity-40 z-0">
@@ -413,7 +439,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 lg:mb-24 mb-16 gap-x-3 gap-y-3 animate-reveal delay-200">
 
-                    <button
+                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
                         class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-xl gap-x-3 gap-y-3 items-center justify-between"
                         style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
                         <span class="text-sm font-medium tracking-tight text-zinc-900">
@@ -428,9 +454,9 @@
                                 <path d="M7 17 17 7"></path>
                             </svg>
                         </span>
-                    </button>
+                    </a>
 
-                    <button
+                    <a href="#portfolio"
                         class="hover:bg-zinc-50 hover:text-zinc- transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] gap-x-2 gap-y-2 items-center"
                         style="box-shadow: 0 18px 35px rgba(31, 41, 55, 0.25), 0 0 0 1px rgba(209, 213, 219, 0.3); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
                         <span class="text-sm font-medium text-black/60 tracking-tight">
@@ -441,7 +467,7 @@
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
                         </svg>
-                    </button>
+                    </a>
 
                 </div>
 
@@ -617,31 +643,31 @@
                 </div>
 
                 <!-- Coluna Direita: Grid de Cartões Clean (Retângulos estritos) -->
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 mt-10 lg:mt-6">
+                <div class="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 mt-10 lg:mt-6">
 
                     <!-- Card 1 -->
                     <div
-                        class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-100">
+                        class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-100 p-2 sm:p-0">
                         <span
-                            class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center text-center">+10</span>
-                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de Mercado</span>
+                            class="text-5xl sm:text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center text-center">+10</span>
+                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de Mercado</span>
                     </div>
 
                     <!-- Card 2 -->
                     <div
                         class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default p-2 scroll-fade-blur delay-200">
                         <span
-                            class="text-4xl lg:text-[2.75rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+100.000</span>
-                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m² verticais
+                            class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+100k</span>
+                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m² verticais
                             reformados</span>
                     </div>
 
                     <!-- Card 3 -->
                     <div
-                        class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-300">
+                        class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-300 p-2 sm:p-0">
                         <span
-                            class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+30</span>
-                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
+                            class="text-5xl sm:text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+30</span>
+                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
                     </div>
 
                     <!-- Card 4 -->
@@ -721,7 +747,7 @@
                         <iconify-icon icon="solar:paint-roller-outline"
                             class="text-4xl lg:text-5xl text-tiffany-500"></iconify-icon>
                         <h3 class="text-xl lg:text-2xl font-semibold text-white mt-6 mb-3 tracking-tight leading-tight">
-                            Revitalização Premium de Fachadas</h3>
+                            Mapeamento e Revitalização de Fachadas</h3>
                         <p class="text-zinc-400 text-sm lg:text-[15px] leading-relaxed font-normal">
                             Retrofit estético, lavagem técnica de alta pressão, reposição segura de pastilhas e
                             aplicação de hidrofugantes. O novo cartão de visitas do seu prédio.
@@ -803,118 +829,202 @@
     </section>
 
     <!-- ==================== SESSÃO: METODOLOGIA ==================== -->
-    <section id="metodologia" class="relative w-full py-24 lg:py-32 bg-[#fafafa] overflow-hidden z-10 border-t border-zinc-200/50">
+    <section id="metodologia"
+        class="relative w-full py-24 lg:py-32 bg-[#fafafa] overflow-hidden z-10 border-t border-zinc-200/50">
         <style>
             @keyframes timeline-left-slide {
-                0% { opacity: 0; transform: translateX(-30px); filter: blur(6px); }
-                100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+                0% {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                    filter: blur(6px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                    filter: blur(0);
+                }
             }
+
             @keyframes timeline-right-slide {
-                0% { opacity: 0; transform: translateX(30px); filter: blur(6px); }
-                100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+                0% {
+                    opacity: 0;
+                    transform: translateX(30px);
+                    filter: blur(6px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                    filter: blur(0);
+                }
             }
-            .anim-tl-left { opacity: 0; will-change: transform, opacity, filter; }
-            .anim-tl-left.is-visible { animation: timeline-left-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-            
-            .anim-tl-right { opacity: 0; will-change: transform, opacity, filter; }
-            .anim-tl-right.is-visible { animation: timeline-right-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+            .anim-tl-left {
+                opacity: 0;
+                will-change: transform, opacity, filter;
+            }
+
+            .anim-tl-left.is-visible {
+                animation: timeline-left-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            .anim-tl-right {
+                opacity: 0;
+                will-change: transform, opacity, filter;
+            }
+
+            .anim-tl-right.is-visible {
+                animation: timeline-right-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
         </style>
-        
+
         <div class="max-w-[1100px] mx-auto px-6 lg:px-[6%] relative z-10">
-            
+
             <!-- Header -->
             <div class="flex flex-col items-center text-center gap-6 mb-20 lg:mb-24">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 scroll-fade-blur">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 scroll-fade-blur">
                     <span class="w-1.5 h-1.5 rounded-none bg-tiffany-500 border border-tiffany-400"></span>
                     <span class="text-[11px] font-bold text-tiffany-600 uppercase tracking-widest">O Jeito Global</span>
                 </div>
-                
-                <h2 class="text-4xl lg:text-5xl leading-[1.1] font-semibold text-zinc-900 tracking-tight max-w-3xl scroll-fade-blur delay-100">
+
+                <h2
+                    class="text-4xl lg:text-5xl leading-[1.1] font-semibold text-zinc-900 tracking-tight max-w-3xl scroll-fade-blur delay-100">
                     A Nossa <span class="text-tiffany-500">Metodologia</span> de Trabalho
                 </h2>
-                
-                <p class="text-lg lg:text-xl text-zinc-600 font-normal leading-relaxed max-w-2xl scroll-fade-blur delay-200">
-                    Da primeira vistoria à entrega final, elaboramos processos blindados que garantem a segurança do condomínio.
+
+                <p
+                    class="text-lg lg:text-xl text-zinc-600 font-normal leading-relaxed max-w-2xl scroll-fade-blur delay-200">
+                    Da primeira vistoria à entrega final, elaboramos processos blindados que garantem a segurança do
+                    condomínio.
                 </p>
             </div>
 
             <!-- Box Principal da Timeline -->
             <div class="relative w-full py-4 lg:py-6">
                 <!-- Linha Guia Vertical usando Tailwind puro para espelhar as Variáveis -->
-                <div class="absolute top-0 bottom-0 w-[2px] bg-tiffany-500 left-[32px] md:left-1/2 md:-translate-x-1/2 rounded-full opacity-30 z-0"></div>
+                <div
+                    class="absolute top-0 bottom-0 w-[2px] bg-tiffany-500 left-[32px] md:left-1/2 md:-translate-x-1/2 rounded-full opacity-30 z-0">
+                </div>
 
                 <div class="flex flex-col gap-12 lg:gap-8 relative w-full z-10">
-                    
+
                     <!-- Etapa 1 -->
                     <div class="relative w-full flex justify-end md:justify-start anim-tl-left">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:chat-square-call-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Vistoria Estratégica</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Mapeamento técnico in loco para identificar patologias e necessidades reais do condomínio.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:chat-square-call-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Vistoria
+                                    Estratégica</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Mapeamento
+                                    técnico in loco para identificar patologias e necessidades reais do condomínio.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                     <!-- Etapa 2 -->
                     <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:clipboard-text-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Laudo e Viabilidade</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Elaboração de um plano de ação detalhado com transparência total para aprovação em assembleia.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:clipboard-text-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Laudo e
+                                    Viabilidade</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Elaboração de um
+                                    plano de ação detalhado com transparência total para aprovação em assembleia.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                     <!-- Etapa 3 -->
                     <div class="relative w-full flex justify-end md:justify-start anim-tl-left lg:-mt-6">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:minimalistic-magnifer-zoom-in-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Orçamento Inteligente</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Detalhamento financeiro preciso, focado no melhor custo-benefício e valorização do imóvel.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:minimalistic-magnifer-zoom-in-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">
+                                    Orçamento Inteligente</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Detalhamento
+                                    financeiro preciso, focado no melhor custo-benefício e valorização do imóvel.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                     <!-- Etapa 4 -->
                     <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Execução e Segurança</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Início da obra com canteiro organizado, equipes certificadas (NR-35) e respeito à rotina dos moradores.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Execução
+                                    e Segurança</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Início da obra
+                                    com canteiro organizado, equipes certificadas (NR-35) e respeito à rotina dos
+                                    moradores.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                     <!-- Etapa 5 -->
                     <div class="relative w-full flex justify-end md:justify-start anim-tl-left lg:-mt-6">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:chart-square-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Monitoramento de Projetos</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Acompanhamento contínuo e relatórios periódicos, atestando o mais alto padrão técnico das intervenções.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:chart-square-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">
+                                    Monitoramento de Projetos</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Acompanhamento
+                                    contínuo e relatórios periódicos, atestando o mais alto padrão técnico das
+                                    intervenções.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                     <!-- Etapa 6 -->
                     <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
                         <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
-                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
-                                <iconify-icon icon="solar:verified-check-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
-                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Conclusão e Entrega da Obra</h3>
-                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Revisão final detalhada, limpeza total do canteiro e entrega oficial com emissão dos termos de garantia.</p>
+                            <div
+                                class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:verified-check-bold-duotone"
+                                    class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">
+                                    Conclusão e Entrega da Obra</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Revisão final
+                                    detalhada, limpeza total do canteiro e entrega oficial com emissão dos termos de
+                                    garantia.</p>
                             </div>
                         </div>
-                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                        <div
+                            class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm">
+                            <div class="w-2 h-2 bg-zinc-900 rounded-full"></div>
+                        </div>
                     </div>
 
                 </div>
@@ -932,11 +1042,540 @@
                         }
                     });
                 }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
-                
+
                 document.querySelectorAll('.anim-tl-left, .anim-tl-right').forEach(el => tlObserver.observe(el));
             });
         </script>
     </section>
+
+    <!-- ==================== SESSÃO: PORTFÓLIO ==================== -->
+    <section id="portfolio" class="relative w-full py-24 lg:py-32 bg-white overflow-hidden z-10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-[8%] relative z-10">
+
+            <!-- Header -->
+            <div class="flex flex-col items-center text-center gap-6 mb-16 lg:mb-20">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded border border-zinc-200/60 bg-zinc-50 shadow-sm scroll-fade-blur">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
+                    <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Nosso Legado</span>
+                </div>
+
+                <h2
+                    class="text-4xl lg:text-5xl leading-[1.1] font-semibold text-zinc-900 tracking-tight max-w-4xl scroll-fade-blur delay-100">
+                    Portfólio: Obras que redefinem o <span class="text-tiffany-500">horizonte capixaba.</span>
+                </h2>
+
+                <p
+                    class="text-lg lg:text-xl text-zinc-600 font-normal leading-relaxed max-w-2xl scroll-fade-blur delay-200">
+                    Resultados reais em condomínios de alto padrão na Grande Vitória.
+                </p>
+            </div>
+
+            <!-- 1. VITRINE DE VÍDEOS -->
+            <div class="mb-20 lg:mb-28 scroll-fade-blur delay-300">
+                <div id="videoCarousel"
+                    class="flex gap-4 lg:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory flex-nowrap hide-scrollbar w-full transition-all">
+
+                    <div
+                        class="shrink-0 w-[240px] md:w-[280px] lg:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden relative snap-start shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20 group">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-full object-cover filter saturate-[0.9] transition-transform duration-[2s] group-hover:scale-110">
+                            <source src="public/portfolio-videos/video1.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            onclick="let v = this.previousElementSibling.previousElementSibling; if(v.muted){v.muted=false; this.innerHTML='<iconify-icon icon=\'solar:volume-loud-bold-duotone\'></iconify-icon>'}else{v.muted=true; this.innerHTML='<iconify-icon icon=\'solar:volume-cross-bold-duotone\'></iconify-icon>'}"
+                            class="absolute bottom-5 right-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
+                            aria-label="Ativar som do vídeo">
+                            <iconify-icon icon="solar:volume-cross-bold-duotone"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div
+                        class="shrink-0 w-[240px] md:w-[280px] lg:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden relative snap-start shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20 group">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-full object-cover filter saturate-[0.9] transition-transform duration-[2s] group-hover:scale-110">
+                            <source src="public/portfolio-videos/video-2.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            onclick="let v = this.previousElementSibling.previousElementSibling; if(v.muted){v.muted=false; this.innerHTML='<iconify-icon icon=\'solar:volume-loud-bold-duotone\'></iconify-icon>'}else{v.muted=true; this.innerHTML='<iconify-icon icon=\'solar:volume-cross-bold-duotone\'></iconify-icon>'}"
+                            class="absolute bottom-5 right-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
+                            aria-label="Ativar som do vídeo">
+                            <iconify-icon icon="solar:volume-cross-bold-duotone"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div
+                        class="shrink-0 w-[240px] md:w-[280px] lg:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden relative snap-start shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20 group">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-full object-cover filter saturate-[0.9] transition-transform duration-[2s] group-hover:scale-110">
+                            <source src="public/portfolio-videos/video-3.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            onclick="let v = this.previousElementSibling.previousElementSibling; if(v.muted){v.muted=false; this.innerHTML='<iconify-icon icon=\'solar:volume-loud-bold-duotone\'></iconify-icon>'}else{v.muted=true; this.innerHTML='<iconify-icon icon=\'solar:volume-cross-bold-duotone\'></iconify-icon>'}"
+                            class="absolute bottom-5 right-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
+                            aria-label="Ativar som do vídeo">
+                            <iconify-icon icon="solar:volume-cross-bold-duotone"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div
+                        class="shrink-0 w-[240px] md:w-[280px] lg:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden relative snap-start shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20 group">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-full object-cover filter saturate-[0.9] transition-transform duration-[2s] group-hover:scale-110">
+                            <source src="public/portfolio-videos/video-4.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            onclick="let v = this.previousElementSibling.previousElementSibling; if(v.muted){v.muted=false; this.innerHTML='<iconify-icon icon=\'solar:volume-loud-bold-duotone\'></iconify-icon>'}else{v.muted=true; this.innerHTML='<iconify-icon icon=\'solar:volume-cross-bold-duotone\'></iconify-icon>'}"
+                            class="absolute bottom-5 right-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
+                            aria-label="Ativar som do vídeo">
+                            <iconify-icon icon="solar:volume-cross-bold-duotone"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div
+                        class="shrink-0 w-[240px] md:w-[280px] lg:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden relative snap-start shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-white/20 group">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-full object-cover filter saturate-[0.9] transition-transform duration-[2s] group-hover:scale-110">
+                            <source src="public/portfolio-videos/video-5.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            onclick="let v = this.previousElementSibling.previousElementSibling; if(v.muted){v.muted=false; this.innerHTML='<iconify-icon icon=\'solar:volume-loud-bold-duotone\'></iconify-icon>'}else{v.muted=true; this.innerHTML='<iconify-icon icon=\'solar:volume-cross-bold-duotone\'></iconify-icon>'}"
+                            class="absolute bottom-5 right-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
+                            aria-label="Ativar som do vídeo">
+                            <iconify-icon icon="solar:volume-cross-bold-duotone"></iconify-icon>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 2. GALERIA DE PROJETOS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Destaque: Edifício Itaparica Connection Residence -->
+                <div class="sm:col-span-2 lg:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[400px]">
+                        <img src="public/fotos/ed-itaparica.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Itaparica Connection Residence">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Itaparica Connection</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edifício Açores -->
+                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/acores-1.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Açores">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Edifício Açores</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Casa do Adubo -->
+                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/adubo-1.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Casa do Adubo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Casa do Adubo</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Serra/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edifício Judith Castelo -->
+                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/ed-judith.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Judith Castelo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Judith Castelo</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edifício Praia do Morro -->
+                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/ed-praiadomorro.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Praia do Morro">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Praia do Morro</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edifício Caleche -->
+                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/caleche-1.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Caleche">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Edifício Caleche</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edifício Praia das Castanheiras -->
+                <div class="sm:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
+                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/praiacastanheiras-1.webp"
+                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
+                            alt="Edifício Praia das Castanheiras">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
+                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Praia das Castanheiras</h3>
+                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Button -->
+            <div class="mt-16 lg:mt-24 flex justify-center scroll-fade-blur delay-400">
+                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                    class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-[15px] font-semibold text-zinc-900 rounded-full py-4 px-8 gap-x-3 items-center justify-center cursor-pointer"
+                    style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
+                    <span class="tracking-tight text-zinc-900">
+                        Solicitar Orçamento para meu Condomínio
+                    </span>
+                    <span
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-zinc-900/10 border border-zinc-900/20 group-hover:bg-zinc-900/20 transition-colors">
+                        <svg class="group-hover:translate-x-1 transition-transform" fill="none" height="14"
+                            stroke="#0F172A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+
+        <style>
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+        <!-- Drag-to-Scroll Script for Video Carousel -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const slider = document.getElementById('videoCarousel');
+                if (!slider) return;
+
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                slider.style.cursor = 'grab';
+
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    slider.style.cursor = 'grabbing';
+                    // Pause scrolling snapping for fluid drag
+                    slider.classList.remove('snap-x', 'snap-mandatory');
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                const stopDrag = () => {
+                    isDown = false;
+                    slider.style.cursor = 'grab';
+                    slider.classList.add('snap-x', 'snap-mandatory');
+                };
+
+                slider.addEventListener('mouseleave', stopDrag);
+                slider.addEventListener('mouseup', stopDrag);
+
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2; // speed multiplier
+                    slider.scrollLeft = scrollLeft - walk;
+                });
+            });
+        </script>
+    </section>
+
+    <!-- 6. SEÇÃO DEPOIMENTOS -->
+    <section id="depoimentos" class="py-24 bg-white relative">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+            <div class="flex flex-col items-center text-center gap-6 mb-16 scroll-fade-blur">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded border border-zinc-200/60 bg-zinc-50 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
+                    <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Depoimentos</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-semibold text-zinc-900 tracking-tight font-display mt-2 sm:mt-0 mb-2">
+                    A palavra de quem <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 to-tiffany-300">administra
+                        com excelência</span>.
+                </h2>
+                <p class="text-zinc-500 max-w-2xl text-[17px]">Nossa reputação é construída sobre a confiança e os
+                    resultados entregues a síndicos e gestores renomados.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-zinc-50 rounded-[2rem] p-10 relative shadow-sm border border-zinc-200/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 scroll-fade-blur delay-100 flex flex-col justify-between">
+                    <iconify-icon icon="solar:quote-right-bold"
+                        class="text-tiffany-100/50 text-7xl absolute top-6 left-6 z-0"></iconify-icon>
+                    <p class="text-zinc-600 text-[15px] font-medium leading-relaxed relative z-10 italic mb-8">
+                        "A Global trouxe tranquilidade para nossa gestão em Itaparica. A obra foi limpa, segura e o
+                        resultado valorizou muito o prédio."
+                    </p>
+                    <div class="flex items-center gap-4 relative z-10 mt-auto">
+                        <img src="public/fotos/ed-itaparica.webp"
+                            class="w-12 h-12 rounded-full object-cover shadow-inner" alt="Avatar Síndico">
+                        <div>
+                            <p class="text-sm font-bold text-zinc-900">Síndico</p>
+                            <p class="text-[11px] text-tiffany-600 font-semibold uppercase tracking-widest">Ed.
+                                Itaparica Connection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-zinc-50 rounded-[2rem] p-10 relative shadow-sm border border-zinc-200/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 scroll-fade-blur delay-200 flex flex-col justify-between">
+                    <iconify-icon icon="solar:quote-right-bold"
+                        class="text-tiffany-100/50 text-7xl absolute top-6 left-6 z-0"></iconify-icon>
+                    <p class="text-zinc-600 text-[15px] font-medium leading-relaxed relative z-10 italic mb-8">
+                        "O diferencial deles é o conhecimento técnico sobre a maresia de Vitória. O laudo foi muito
+                        claro e ajudou na aprovação em assembleia."
+                    </p>
+                    <div class="flex items-center gap-4 relative z-10 mt-auto">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tiffany-100 flex items-center justify-center text-tiffany-600 font-bold shadow-inner">
+                            GP</div>
+                        <div>
+                            <p class="text-sm font-bold text-zinc-900">Gestora Predial</p>
+                            <p class="text-[11px] text-tiffany-600 font-semibold uppercase tracking-widest">Praia do
+                                Canto</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-zinc-50 rounded-[2rem] p-10 relative shadow-sm border border-zinc-200/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 scroll-fade-blur delay-300 flex flex-col justify-between">
+                    <iconify-icon icon="solar:quote-right-bold"
+                        class="text-tiffany-100/50 text-7xl absolute top-6 left-6 z-0"></iconify-icon>
+                    <p class="text-zinc-600 text-[15px] font-medium leading-relaxed relative z-10 italic mb-8">
+                        "Trabalho impecável e equipe muito educada. Recomendo para qualquer condomínio que preze por
+                        qualidade e prazo."
+                    </p>
+                    <div class="flex items-center gap-4 relative z-10 mt-auto">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tiffany-100 flex items-center justify-center text-tiffany-600 font-bold shadow-inner">
+                            SC</div>
+                        <div>
+                            <p class="text-sm font-bold text-zinc-900">Síndico</p>
+                            <p class="text-[11px] text-tiffany-600 font-semibold uppercase tracking-widest">Jardim
+                                Camburi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA E RODAPÉ -->
+
+    <!-- CTA Block Superior -->
+    <section id="contato" class="pt-8 pb-32 bg-white relative">
+        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+            <div
+                class="bg-zinc-900 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl scroll-fade-blur">
+                <!-- Efeitos Luminosos Dark Surface -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 bg-tiffany-500/20 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2">
+                </div>
+
+                <h2
+                    class="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-6 font-display relative z-10">
+                    Não deixe a valorização do <br class="hidden sm:block" /> seu patrimônio para depois.
+                </h2>
+                <p class="text-zinc-400 text-[17px] max-w-2xl mx-auto mb-10 relative z-10 font-normal leading-relaxed">
+                    Infiltrações e desgaste estrutural não esperam. Proteja seu condomínio com quem entende do clima
+                    capixaba.
+                </p>
+
+                <div class="flex justify-center items-center relative z-10">
+                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                        class="hover:bg-black transition-all duration-300 flex group shadow-zinc-900/10 hover:shadow-[0_20px_40px_-5px_rgba(0,134,189,0.5)] hover:-translate-y-1 hover:scale-[1.02] text-[15px] font-semibold text-zinc-900 rounded-full py-4 px-8 gap-x-3 items-center justify-center cursor-pointer"
+                        style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
+                        <span class="tracking-tight text-zinc-900">
+                            Falar com um Especialista via WhatsApp
+                        </span>
+                        <span
+                            class="flex items-center justify-center w-7 h-7 bg-zinc-900 text-white rounded-full transition-transform group-hover:scale-110 shadow-inner">
+                            <iconify-icon icon="solar:phone-bold" class="text-xs"></iconify-icon>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-zinc-950 pt-20 pb-8 border-t border-zinc-800 -mt-20 relative z-0">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 mt-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 lg:gap-8 mb-10 lg:mb-16">
+
+                <!-- Coluna 1: Sobre -->
+                <div class="col-span-2 lg:col-span-1 flex flex-col">
+                    <div class="flex items-center text-white mb-6">
+                        <img src="public/logo-colorida.webp" alt="Global Obras e Serviços"
+                            class="h-10 w-auto object-contain">
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
+                        Especialistas em revitalização de fachadas, combinando excelência técnica e gestão humanizada
+                        para edifícios em toda a Grande Vitória.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-tiffany-600 hover:text-white transition-all duration-300 border border-zinc-800 hover:border-tiffany-500 hover:-translate-y-1"
+                            aria-label="Instagram">
+                            <iconify-icon icon="lucide:instagram" class="text-[18px]"></iconify-icon>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-tiffany-600 hover:text-white transition-all duration-300 border border-zinc-800 hover:border-tiffany-500 hover:-translate-y-1"
+                            aria-label="LinkedIn">
+                            <iconify-icon icon="lucide:linkedin" class="text-[18px]"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Serviços Rápidos -->
+                <div class="flex flex-col">
+                    <h4 class="text-white font-semibold mb-6 tracking-widest uppercase text-[11px]">Links Rápidos</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="#"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Início da
+                                Página</a></li>
+                        <li><a href="#servicos"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Nossas
+                                Soluções</a></li>
+                        <li><a href="#metodologia"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">O Jeito
+                                Global</a></li>
+                        <li><a href="#portfolio"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Projetos
+                                Entregues</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Especialidades -->
+                <div class="flex flex-col">
+                    <h4 class="text-white font-semibold mb-6 tracking-widest uppercase text-[11px]">Serviços</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="#servicos"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Revitalização
+                                de Fachadas</a></li>
+                        <li><a href="#servicos"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Recuperação
+                                Estrutural</a></li>
+                        <li><a href="#servicos"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Impermeabilização</a>
+                        </li>
+                        <li><a href="#servicos"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">Emissão de
+                                Laudos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Contato -->
+                <div class="col-span-2 lg:col-span-1 flex flex-col">
+                    <h4 class="text-white font-semibold mb-6 tracking-widest uppercase text-[11px]">Contato</h4>
+                    <ul class="flex flex-col gap-4">
+                        <li class="flex items-center gap-3 group">
+                            <iconify-icon icon="lucide:mail"
+                                class="text-tiffany-500 text-lg shrink-0 group-hover:scale-110 transition-transform"></iconify-icon>
+                            <a href="mailto:orcamentogobras@gmail.com"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">orcamentogobras@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3 group">
+                            <iconify-icon icon="lucide:mail"
+                                class="text-tiffany-500 text-lg shrink-0 group-hover:scale-110 transition-transform"></iconify-icon>
+                            <a href="mailto:admglobalobras@gmail.com"
+                                class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">admglobalobras@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3 group">
+                            <iconify-icon icon="lucide:phone"
+                                class="text-tiffany-500 text-lg shrink-0 group-hover:scale-110 transition-transform"></iconify-icon>
+                            <a href="#" class="text-zinc-400 hover:text-tiffany-400 transition-colors text-[14px]">+55
+                                (27) 98859-1001</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Rodapé Inferior -->
+            <div class="pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-zinc-500 text-xs tracking-wide">
+                    © 2026 Global Obras e Serviços – Especialistas em Fachadas na Grande Vitória. Todos os direitos
+                    reservados.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#"
+                        class="text-zinc-500 hover:text-tiffany-400 text-xs tracking-wide transition-colors">Termos de
+                        Uso</a>
+                    <a href="#"
+                        class="text-zinc-500 hover:text-tiffany-400 text-xs tracking-wide transition-colors">Política de
+                        Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Script para Interatividade de Scroll -->
     <script>
@@ -950,11 +1589,54 @@
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
+                rootMargin: "0px 0px -20% 0px"
             });
 
             document.querySelectorAll('.scroll-fade-blur').forEach((el) => {
                 observer.observe(el);
+            });
+        });
+
+        // Toggle do Menu Mobile
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const bar1 = document.getElementById('icon-bar-1');
+            const bar2 = document.getElementById('icon-bar-2');
+            const bar3 = document.getElementById('icon-bar-3');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if(isMenuOpen) {
+                    // Abrir Menu
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    
+                    // Animação do X
+                    bar1.classList.add('rotate-45', 'translate-y-[6px]');
+                    bar2.classList.add('opacity-0');
+                    bar3.classList.add('-rotate-45', '-translate-y-[6px]');
+                } else {
+                    // Fechar Menu
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                    
+                    // Voltar Hamburger
+                    bar1.classList.remove('rotate-45', 'translate-y-[6px]');
+                    bar2.classList.remove('opacity-0');
+                    bar3.classList.remove('-rotate-45', '-translate-y-[6px]');
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(isMenuOpen) toggleMenu();
+                });
             });
         });
     </script>
