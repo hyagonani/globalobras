@@ -398,5 +398,117 @@
         </div>
     </section>
 
+    <!-- ==================== SESSÃO: SERVIÇOS ==================== -->
+    <section id="servicos" class="relative w-full py-24 lg:py-32 bg-white overflow-hidden z-10">
+        <!-- Fundo com grid de marca d'água para interagir com o Light Glass -->
+        <div class="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
+            <div class="grid-line-v" style="left: var(--gx-1)"></div>
+            <div class="grid-line-v" style="left: var(--gx-2)"></div>
+            <div class="grid-line-v" style="left: var(--gx-3)"></div>
+        </div>
+        
+        <!-- Elementos Blur espalhados para destaque sútil no GlassMorphism (bg animado estático) -->
+        <div class="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-tiffany-300/10 rounded-full blur-[120px] z-0 pointer-events-none"></div>
+        <div class="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] bg-zinc-200/50 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-[8%] relative z-10">
+            
+            <!-- Header Centralizado -->
+            <div class="flex flex-col items-center text-center gap-6 mb-16 lg:mb-24">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-tiffany-50 border border-tiffany-100 animate-reveal">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
+                    <span class="text-[11px] font-bold text-tiffany-600 uppercase tracking-widest">Soluções</span>
+                </div>
+                
+                <!-- Heading -->
+                <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.2] font-bold text-zinc-900 tracking-tight max-w-4xl animate-reveal delay-100">
+                    Engenharia focada em <span class="text-tiffany-500">Estética e Proteção</span> Definitiva.
+                </h2>
+                
+                <!-- Subtítulo -->
+                <p class="text-base lg:text-lg text-zinc-600 leading-relaxed max-w-2xl animate-reveal delay-200">
+                    Intervenções técnicas de alto padrão para combater a maresia capixaba e elevar o valor de mercado do seu condomínio.
+                </p>
+            </div>
+
+            <!-- Grid de Cartões de Serviço -->
+            <!-- 1 col mobile, 2 col tablet, 4 col desktop largo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+                
+                <!-- Card 1 -->
+                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-300">
+                    <!-- Brilho no Hover (Gradiente Semântico - Brand Main) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
+                    <!-- Borda superior Gradiente animada -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    
+                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
+                        <iconify-icon icon="solar:city-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col gap-3">
+                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Revitalização Premium de Fachadas</h3>
+                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                            Retrofit estético, lavagem técnica de alta pressão, reposição segura de pastilhas e aplicação de hidrofugantes. O novo cartão de visitas do seu prédio.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    
+                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
+                        <iconify-icon icon="solar:layers-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col gap-3">
+                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Tratamento de Concreto e Ferragens</h3>
+                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                            A saúde estrutural do edifício. Diagnóstico profundo e cura de armaduras oxidadas pela maresia, evitando riscos estruturais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    
+                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
+                        <iconify-icon icon="solar:waterdrop-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col gap-3">
+                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Impermeabilização de Alta Performance</h3>
+                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                            O fim das infiltrações. Sistemas avançados com mantas e resinas de ponta para lajes, garagens, piscinas e áreas de lazer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    
+                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
+                        <iconify-icon icon="solar:clipboard-check-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col gap-3">
+                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Manutenção Predial Inteligente</h3>
+                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                            Preservação contínua do seu ativo. Intervenções preventivas que evitam taxas extras emergenciais e mantêm o padrão do condomínio impecável.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
