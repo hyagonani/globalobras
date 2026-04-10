@@ -109,7 +109,7 @@
             pointer-events: none;
         }
 
-        /* Animações */
+        /* Animações Automáticas (Hero apenas) */
         @keyframes reveal-up {
             0% { transform: translateY(30px); opacity: 0; filter: blur(10px); }
             100% { transform: translateY(0); opacity: 1; filter: blur(0px); }
@@ -128,9 +128,20 @@
             opacity: 0;
             will-change: opacity, filter;
         }
+        
+        /* Animações por Scroll (Intersection Observer) */
+        .scroll-fade-blur {
+            opacity: 0;
+            will-change: transform, opacity, filter;
+        }
+        .scroll-fade-blur.is-visible {
+            animation: reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
 
         @keyframes marquee {
@@ -150,7 +161,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-2 transition-all animate-fade-in delay-200" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
             <div class="flex items-center flex-shrink-0 cursor-pointer">
-                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[2.5rem] w-auto">
+                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[3.25rem] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300">
             </div>
             <div class="hidden md:flex gap-8 text-[12px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
                 <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
@@ -178,10 +189,10 @@
         </div>
 
         <!-- Imagem de fundo no mobile (exibida abaixo do texto) -->
-        <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2">
+        <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2 animate-fade-in">
             <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
             <!-- Cartão Flutuante (Floating Image) Mobile -->
-            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-md shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md">
+            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-md shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md animate-reveal delay-200">
                 <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação" class="w-full h-auto aspect-[4/5] object-cover rounded-sm" />
             </div>
         </div>
@@ -272,7 +283,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                 
                 <!-- Coluna Esquerda: Imagem com Clip Path Diagonal -->
-                <div class="relative w-full aspect-[4/5] mx-auto max-w-md lg:max-w-none group order-2 lg:order-1 mt-6 lg:mt-0">
+                <div class="relative w-full aspect-[4/5] mx-auto max-w-md lg:max-w-none group order-2 lg:order-1 mt-6 lg:mt-0 scroll-fade-blur">
                     
                     <!-- Borda Gradiente (Azul primário destacando cantos esquerdo-superior e direito-inferior) -->
                     <div class="absolute inset-0 p-[2.5px] bg-gradient-to-br from-tiffany-500 via-transparent to-tiffany-500 z-0 transition-transform duration-500 group-hover:scale-[1.01]" style="clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);"></div>
@@ -284,7 +295,7 @@
                     </div>
 
                     <!-- Ícone Flutuante (Escudo) -->
-                    <div class="absolute top-[40%] left-[0] md:left-[-25px] -translate-x-1/2 -translate-y-1/2 z-30 bg-zinc-900 border border-zinc-700/50 rounded-md p-4 shadow-2xl flex items-center justify-center aspect-square w-[75px] md:w-[85px] animate-fade-in delay-200">
+                    <div class="absolute top-[40%] left-[0] md:left-[-25px] -translate-x-1/2 -translate-y-1/2 z-30 bg-zinc-900 border border-zinc-700/50 rounded-md p-4 shadow-2xl flex items-center justify-center aspect-square w-[75px] md:w-[85px] scroll-fade-blur delay-200">
                         <iconify-icon icon="solar:shield-check-bold-duotone" class="text-4xl text-tiffany-500 drop-shadow-[0_0_8px_rgba(0,134,189,0.3)]"></iconify-icon>
                     </div>
                 </div>
@@ -292,18 +303,18 @@
                 <!-- Coluna Direita: Textos -->
                 <div class="flex flex-col items-start gap-6 lg:gap-8 order-1 lg:order-2">
                     <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded border border-zinc-200/80 bg-zinc-50 shadow-sm animate-reveal delay-100">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded border border-zinc-200/80 bg-zinc-50 shadow-sm scroll-fade-blur delay-100">
                         <span class="w-2 h-2 rounded-none bg-tiffany-500 shadow-[0_0_6px_rgba(0,134,189,0.5)] border border-tiffany-400"></span>
                         <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Referência Capixaba</span>
                     </div>
                     
                     <!-- Heading H2 -->
-                    <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] font-bold text-zinc-900 tracking-tight animate-reveal delay-200">
+                    <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] font-bold text-zinc-900 tracking-tight scroll-fade-blur delay-200">
                         A Global Obras é <span class="text-tiffany-500">sinônimo de engenharia de precisão</span> na recuperação de fachadas e proteção predial
                     </h2>
                     
                     <!-- Parágrafos -->
-                    <div class="flex flex-col gap-5 text-base lg:text-lg animate-reveal delay-300">
+                    <div class="flex flex-col gap-5 text-base lg:text-lg scroll-fade-blur delay-300">
                         <p class="text-zinc-700 leading-relaxed font-medium">
                             Administrar um condomínio na Grande Vitória exige ir além da simples manutenção. Com um legado focado em <strong class="font-bold text-zinc-900">resolver patologias litorâneas</strong>, dedicamo-nos a transformar o custo da obra em investimento, garantindo <strong class="font-bold text-zinc-900">segurança estrutural e estética de alto padrão</strong>.
                         </p>
@@ -325,7 +336,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 
                 <!-- Coluna Esquerda: Texto + Imagem Slider -->
-                <div class="lg:col-span-5 flex flex-col items-start gap-6 lg:gap-8 lg:mt-6">
+                <div class="lg:col-span-5 flex flex-col items-start gap-6 lg:gap-8 lg:mt-6 scroll-fade-blur">
                     
                     <div class="flex flex-col items-start gap-4">
                         <!-- Badge Minimalista -->
@@ -347,7 +358,7 @@
 
                     <!-- Imagem Simples -->
                     <!-- Corte igual ao background no top-left -->
-                    <div class="relative w-full aspect-square mt-2 overflow-hidden shadow-sm" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);">
+                    <div class="relative w-full aspect-square mt-2 overflow-hidden shadow-sm scroll-fade-blur delay-200" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);">
                         <img src="public/fotos/ed-itaparica-2.webp" alt="Fachadas capixabas" class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]" />
                     </div>
 
@@ -357,37 +368,37 @@
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 mt-10 lg:mt-6">
                     
                     <!-- Card 1 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-100">
                         <span class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center text-center">+10</span>
                         <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de Mercado</span>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default p-2">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default p-2 scroll-fade-blur delay-200">
                         <span class="text-4xl lg:text-[2.75rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+100.000</span>
                         <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m² verticais reformados</span>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-300">
                         <span class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+30</span>
                         <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6 scroll-fade-blur delay-400">
                         <iconify-icon icon="solar:shield-check-outline" class="text-3xl text-slate-700"></iconify-icon>
                         <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Garantia</strong> nos serviços prestados</span>
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6 scroll-fade-blur delay-500">
                         <iconify-icon icon="solar:ruler-angular-outline" class="text-3xl text-slate-700"></iconify-icon>
                         <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Projetos</strong> de médio e grande escala</span>
                     </div>
 
                     <!-- Card 6 -->
-                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6 scroll-fade-blur delay-500">
                         <iconify-icon icon="solar:waterdrop-outline" class="text-3xl text-slate-700"></iconify-icon>
                         <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Proteção</strong> contra maresia e umidade</span>
                     </div>
@@ -416,18 +427,18 @@
             <!-- Header Centralizado -->
             <div class="flex flex-col items-center text-center gap-6 mb-16 lg:mb-24">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 animate-reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 scroll-fade-blur">
                     <span class="w-1.5 h-1.5 rounded-none bg-tiffany-500 border border-tiffany-400"></span>
                     <span class="text-[11px] font-bold text-tiffany-600 uppercase tracking-widest">Soluções</span>
                 </div>
                 
                 <!-- Heading -->
-                <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.2] font-bold text-zinc-900 tracking-tight max-w-4xl animate-reveal delay-100">
+                <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.2] font-bold text-zinc-900 tracking-tight max-w-4xl scroll-fade-blur delay-100">
                     Engenharia focada em <span class="text-tiffany-500">Estética e Proteção</span> Definitiva.
                 </h2>
                 
                 <!-- Subtítulo -->
-                <p class="text-base lg:text-lg text-zinc-600 leading-relaxed max-w-2xl animate-reveal delay-200">
+                <p class="text-base lg:text-lg text-zinc-600 leading-relaxed max-w-2xl scroll-fade-blur delay-200">
                     Intervenções técnicas de alto padrão para combater a maresia capixaba e elevar o valor de mercado do seu condomínio.
                 </p>
             </div>
@@ -436,12 +447,12 @@
             <div class="flex flex-col gap-8 lg:gap-10">
                 
                 <!-- Serviço 1: Revitalização (Texto Esquerda) -->
-                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm animate-reveal delay-300 bg-gradient-to-tr from-zinc-900 to-zinc-700">
+                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm scroll-fade-blur delay-300 bg-gradient-to-tr from-zinc-900 to-zinc-700">
                     <!-- Bloco de Texto -->
-                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
-                        <iconify-icon icon="solar:paint-roller-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
-                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Revitalização Premium de Fachadas</h3>
-                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-16 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:paint-roller-outline" class="text-4xl lg:text-5xl text-tiffany-500"></iconify-icon>
+                        <h3 class="text-xl lg:text-2xl font-bold text-white mt-6 mb-3 tracking-tight leading-tight">Revitalização Premium de Fachadas</h3>
+                        <p class="text-zinc-400 text-sm lg:text-[15px] leading-relaxed font-normal">
                             Retrofit estético, lavagem técnica de alta pressão, reposição segura de pastilhas e aplicação de hidrofugantes. O novo cartão de visitas do seu prédio.
                         </p>
                     </div>
@@ -452,12 +463,12 @@
                 </div>
 
                 <!-- Serviço 2: Concreto e Ferragens (Texto Direita) -->
-                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm animate-reveal delay-400 bg-gradient-to-bl from-zinc-900 to-zinc-700">
+                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm scroll-fade-blur delay-400 bg-gradient-to-bl from-zinc-900 to-zinc-700">
                     <!-- Bloco de Texto -->
-                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
-                        <iconify-icon icon="solar:document-text-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
-                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Tratamento de Concreto e Ferragens</h3>
-                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-16 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:document-text-outline" class="text-4xl lg:text-5xl text-tiffany-500"></iconify-icon>
+                        <h3 class="text-xl lg:text-2xl font-bold text-white mt-6 mb-3 tracking-tight leading-tight">Tratamento de Concreto e Ferragens</h3>
+                        <p class="text-zinc-400 text-sm lg:text-[15px] leading-relaxed font-normal">
                             A saúde estrutural do edifício. Diagnóstico profundo e cura de armaduras oxidadas pela maresia, evitando riscos estruturais.
                         </p>
                     </div>
@@ -468,12 +479,12 @@
                 </div>
 
                 <!-- Serviço 3: Impermeabilização (Texto Esquerda) -->
-                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm animate-reveal delay-500 bg-gradient-to-tr from-zinc-900 to-zinc-700">
+                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm scroll-fade-blur delay-500 bg-gradient-to-tr from-zinc-900 to-zinc-700">
                     <!-- Bloco de Texto -->
-                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
-                        <iconify-icon icon="solar:refresh-circle-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
-                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Impermeabilização de Alta Performance</h3>
-                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-16 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:refresh-circle-outline" class="text-4xl lg:text-5xl text-tiffany-500"></iconify-icon>
+                        <h3 class="text-xl lg:text-2xl font-bold text-white mt-6 mb-3 tracking-tight leading-tight">Impermeabilização de Alta Performance</h3>
+                        <p class="text-zinc-400 text-sm lg:text-[15px] leading-relaxed font-normal">
                             O fim das infiltrações. Sistemas avançados com mantas e resinas de ponta para lajes, garagens, piscinas e áreas de lazer.
                         </p>
                     </div>
@@ -484,13 +495,13 @@
                 </div>
 
                 <!-- Serviço 4: Manutenção Predial (Texto Direita) -->
-                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm animate-reveal delay-500 bg-gradient-to-bl from-zinc-900 to-zinc-700">
+                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm scroll-fade-blur delay-500 bg-gradient-to-bl from-zinc-900 to-zinc-700">
                     <!-- Bloco de Texto -->
-                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
-                        <iconify-icon icon="solar:settings-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
-                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Manutenção Predial Inteligente</h3>
-                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
-                            Preservação contínua do seu ativo. Intervenções preventivas que evitam taxas extras emergenciais e mantêm o padrão do condomínio impecável.
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-16 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:restart-circle-outline" class="text-4xl lg:text-5xl text-tiffany-500"></iconify-icon>
+                        <h3 class="text-xl lg:text-2xl font-bold text-white mt-6 mb-3 tracking-tight leading-tight">Tratamento de Trincas e Fissuras</h3>
+                        <p class="text-zinc-400 text-sm lg:text-[15px] leading-relaxed font-normal">
+                            Sem a devida intervenção, trincas e fissuras ocasionam patologias severas e infiltrações profundas. A Global Obras atua no mapeamento e selamento definitivo dessas estruturas, garantindo isolamento total contra o clima marítimo e restaurando a rigidez predial.
                         </p>
                     </div>
                     <!-- Imagem -->
@@ -503,5 +514,25 @@
         </div>
     </section>
 
+    <!-- Script para Interatividade de Scroll -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Anima apenas uma vez
+                    }
+                });
+            }, {
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('.scroll-fade-blur').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
