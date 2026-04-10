@@ -636,24 +636,96 @@
         </div>
 
         <!-- Imagem Hero Mobile com destaque central -->
-        <div
-            class="block lg:hidden w-full h-[55vh] relative z-0 order-1 animate-fade-in flex flex-col items-center justify-center px-6 pt-6 pb-2">
-            <img src="public/bg-hero.webp" alt="Revitalização de fachada"
-                class="absolute inset-0 w-full h-full object-cover object-bottom filter blur-[2px] opacity-70" />
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-900/10 pointer-events-none"></div>
+        <!-- ==================== HERO MOBILE CONTAINER ==================== -->
+        <div class="flex flex-col lg:hidden w-full px-6 pt-10 pb-16 z-20 relative animate-fade-in">
+            
+            <!-- Visual Card -->
+            <div class="w-full min-h-[420px] sm:min-h-[500px] relative group mb-10">
+                <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50">
+                    <img alt="Revitalização de fachada" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/ed-itaparica.webp"/>
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                    
+                    <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full">
+                        <!-- Top Badges -->
+                        <div class="flex items-start justify-between">
+                            <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tiffany-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span>
+                                </span>
+                                <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Alto Padrão</span>
+                            </div>
+                        </div>
 
-            <!-- Imagem Principal Centralizada ("Cartão Flutuante" escalado e absoluto) -->
-            <div
-                class="relative w-[92%] max-w-[340px] glass-card p-2 rounded-2xl shadow-2xl z-20 bg-white/90 backdrop-blur-xl border border-white/60 mb-6">
-                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação"
-                    class="w-full h-auto aspect-[4/5] object-cover rounded-xl shadow-inner" />
+                        <!-- Bottom details -->
+                        <div class="mt-auto">
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-colors">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-tiffany-500 flex items-center justify-center text-white shadow-lg shadow-tiffany-500/30">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-white text-xs font-semibold">Qualidade Garantida</span>
+                                        <span class="text-white/60 text-[10px] uppercase font-mono">Engenharia de Precisão</span>
+                                    </div>
+                                </div>
+                                <p class="text-white/80 text-xs font-light leading-relaxed">Referência em estética e durabilidade estrutural para o seu condomínio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="flex flex-col relative justify-center mb-2">
+                <!-- Social Proof Pill -->
+                <div class="inline-flex bg-white/60 w-max rounded-full mb-8 pt-1.5 pr-5 pb-1.5 pl-1.5 shadow-sm backdrop-blur-sm items-center border border-zinc-200/50">
+                    <div class="flex -space-x-2 mr-3">
+                        <img alt="Síndico" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://randomuser.me/api/portraits/men/32.jpg"/>
+                        <img alt="Gestora" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://randomuser.me/api/portraits/women/44.jpg"/>
+                        <img alt="Morador" class="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://randomuser.me/api/portraits/men/68.jpg"/>
+                        <div class="w-6 h-6 rounded-full border-2 border-white bg-zinc-900 text-white flex items-center justify-center text-[9px] font-bold tracking-tighter">50+</div>
+                    </div>
+                    <span class="text-xs font-medium text-zinc-600 tracking-wide">
+                        <span class="text-zinc-900">Condomínios</span> atendidos
+                    </span>
+                </div>
+
+                <h1 class="leading-[0.95] text-5xl font-medium text-zinc-900 tracking-tighter mb-6">
+                    Especialistas em <span class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Revitalização</span> e <span class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Reforma</span> de Fachadas.
+                </h1>
+
+                <p class="text-sm text-zinc-500 font-medium max-w-md mb-8 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-4">
+                    O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de alto padrão na Grande Vitória.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 mt-2">
+                    <div class="btn-glow-wrap btn-glow-primary w-full sm:w-auto">
+                        <a href="https://wa.me/5527988591001" target="_blank" class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 items-center justify-between w-full" style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
+                            <span class="text-sm font-medium tracking-tight text-zinc-900">Solicitar Orçamento</span>
+                            <span class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1 ml-4 sm:ml-0">
+                                <svg class="group-hover:translate-x-1 transition-transform" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="color: rgb(15, 23, 42);" viewBox="0 0 24 24" width="16"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-glow-wrap btn-glow-secondary w-full sm:w-auto">
+                        <a href="#portfolio" class="hover:bg-zinc-50 transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 items-center justify-center w-full h-full" style="box-shadow: 0 18px 35px rgba(31, 41, 55, 0.15), 0 0 0 1px rgba(209, 213, 219, 0.3); color: #e5e7eb;">
+                            <span class="text-sm font-medium text-black/60 tracking-tight gap-2 flex items-center">
+                                Ver Portfólio
+                                <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- ==================== ÁREA ESQUERDA: CORTADA NA DIAGONAL ==================== -->
         <!-- Aumentado padding-top lg:pt-24 para manter a leitura limpa logo abaixo da nav -->
         <div
-            class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] order-2 lg:order-none rounded-t-[2.5rem] lg:rounded-none -mt-8 lg:mt-0 shadow-[0_-15px_40px_rgba(0,0,0,0.06)] lg:shadow-none flex flex-col justify-center px-6 py-12 lg:py-0 lg:px-0">
+            class="relative z-10 hidden lg:flex lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] flex-col justify-center">
 
             <!-- ==================== DOT GRID CANVAS ==================== -->
             <canvas id="hero-dot-grid" aria-hidden="true"
@@ -666,72 +738,7 @@
                 <div class="grid-line-v" style="left: var(--gx-3)"></div>
             </div>
 
-            <!-- Conteúdo de Texto: visível SÓ no mobile (desktop usa o grid overlay abaixo) -->
-            <div class="lg:hidden relative z-10 max-w-2xl mt-4">
-
-                <h1 class="leading-[0.95] text-5xl font-medium text-zinc-900 tracking-tighter mb-8">
-                    Especialistas em <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Revitalização</span>
-                    e <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Reforma</span>
-                    de <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Fachadas</span>
-                    em Condomínios na <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Grande
-                        Vitória.</span>
-                </h1>
-
-                <p
-                    class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6">
-                    O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de alto
-                    padrão para máxima valorização em condomínios na Grande Vitória.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-3 mb-10">
-                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
-                        target="_blank"
-                        class="flex text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-3 items-center justify-between"
-                        style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0,134,189,0.7)">
-                        <span class="text-sm font-medium tracking-tight text-zinc-900">Solicitar Orçamento</span>
-                        <span class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1">
-                            <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5" style="color:rgb(15,23,42)"
-                                viewBox="0 0 24 24" width="16">
-                                <path d="M7 7h10v10" />
-                                <path d="M7 17 17 7" />
-                            </svg>
-                        </span>
-                    </a>
-                    <a href="#portfolio"
-                        class="flex text-sm font-medium text-black/60 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-2 items-center"
-                        style="background: linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.1)); box-shadow: 0 8px 20px rgba(31,41,55,0.15), 0 0 0 1px rgba(209,213,219,0.3)">
-                        <span class="text-sm font-medium text-black/60 tracking-tight">Ver Portfólio</span>
-                        <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5" viewBox="0 0 24 24" width="16">
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div
-                    class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-md border border-zinc-100/50">
-                    <div class="flex -space-x-3">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Síndico"
-                            class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Gestora"
-                            class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
-                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Morador"
-                            class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Síndica"
-                            class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
-                    </div>
-                    <p class="text-xs text-zinc-600 font-semibold leading-tight">
-                        Atendimento exclusivo para síndicos e gestores prediais.
-                    </p>
-                </div>
-
-            </div><!-- /mobile text -->
+            <!-- Layout Mobile substituido pela versão do design system -->
         </div>
 
         </div>
@@ -1521,150 +1528,157 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
                 <!-- Destaque: Edifício Itaparica Connection Residence -->
-                <div
-                    class="sm:col-span-2 lg:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[400px]">
-                        <img src="public/fotos/ed-itaparica.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Itaparica Connection Residence">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Ed. Itaparica Connection</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
-                                Velha/ES</span>
+                <div class="sm:col-span-2 lg:col-span-2 w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-100 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Itaparica Connection Residence" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/ed-itaparica.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tiffany-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra em andamento</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default">
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1]">Ed. Itaparica Connection</h3>
+                                        <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vila Velha/ES</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Açores -->
-                <div
-                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/acores-1.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Açores">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Edifício Açores</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                <div class="w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-100 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Açores" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/acores-1.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra Entregue</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Edifício Açores</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vitória/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Casa do Adubo -->
-                <div
-                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/adubo-2.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Casa do Adubo">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Casa do Adubo</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Serra/ES</span>
+                <div class="w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-300 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Casa do Adubo" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/adubo-2.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra Entregue</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Casa do Adubo</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Serra/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Judith Castelo -->
-                <div
-                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/ed-judith.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Judith Castelo">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Ed. Judith Castelo</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                <div class="w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-500 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Judith Castelo" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/ed-judith.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra Entregue</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Ed. Judith Castelo</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vitória/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Praia do Morro -->
-                <div
-                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/ed-praiadomorro.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Praia do Morro">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Ed. Praia do Morro</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
-                                Velha/ES</span>
+                <div class="w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-100 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Praia do Morro" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/ed-praiadomorro.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tiffany-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra em andamento</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Ed. Praia do Morro</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vila Velha/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Caleche -->
-                <div
-                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/caleche-1.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Caleche">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Edifício Caleche</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                <div class="w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-300 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Caleche" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/caleche-1.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tiffany-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra em andamento</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Edifício Caleche</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vitória/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Praia das Castanheiras -->
-                <div
-                    class="sm:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
-                    <div
-                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/praiacastanheiras-1.webp"
-                            class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
-                            alt="Edifício Praia das Castanheiras">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3
-                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
-                                Ed. Praia das Castanheiras</h3>
-                            <span
-                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
-                                Velha/ES</span>
+                <div class="sm:col-span-2 w-full min-h-[350px] lg:min-h-[420px] relative group scroll-fade-blur delay-500 mt-2">
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-zinc-900/20 transition-all duration-700 ease-out border border-zinc-200/50 hover:shadow-tiffany-900/10 hover:-translate-y-2 bg-zinc-100">
+                        <img alt="Edifício Praia das Castanheiras" class="transition-transform duration-[2s] ease-in-out group-hover:scale-105 filter saturate-[0.9] w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" src="public/fotos/praiacastanheiras-1.webp"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10"></div>
+                        <div class="flex flex-col p-6 absolute inset-0 justify-between block z-10 relative h-full pointer-events-none">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-2 bg-white/20 backdrop-blur rounded-full pt-1.5 pr-3 pb-1.5 pl-3 items-center border border-white/30">
+                                    <span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-tiffany-500"></span></span>
+                                    <span class="text-[10px] uppercase font-semibold text-white tracking-wide">Obra Entregue</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pointer-events-auto">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-colors cursor-default flex flex-col justify-end min-h-[80px]">
+                                    <h3 class="text-white text-xl lg:text-2xl font-bold tracking-tight leading-[1.1] mb-1">Ed. Praia das Castanheiras</h3>
+                                    <span class="text-tiffany-300 text-[11px] lg:text-[13px] uppercase tracking-widest font-semibold font-mono">Vila Velha/ES</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
