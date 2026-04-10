@@ -144,7 +144,7 @@
         }
     </style>
 </head>
-<body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased h-screen">
+<body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased min-h-screen">
 
     <!-- Navbar do Design System -->
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all animate-fade-in delay-200" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
@@ -167,7 +167,7 @@
 
     <!-- HERO SECTION FULL-HEIGHT -->
     <!-- Adicionado pt-24 para compensar a navbar fixa na altura correta no container pai -->
-    <main class="relative w-full h-full flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[80px] lg:pt-0">
+    <main class="relative w-full min-h-screen lg:h-screen lg:min-h-[800px] flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[80px] lg:pt-0">
         
         <!-- ==================== ÁREA DIREITA: BACKGROUND IMAGE ==================== -->
         <!-- Visível em tela cheia no desktop (atrás da diagonal branca) -->
@@ -258,6 +258,145 @@
         </div>
 
     </main>
+
+    <!-- ==================== SESSÃO: SOBRE NÓS ==================== -->
+    <section id="sobre" class="relative w-full py-24 lg:py-36 bg-white overflow-hidden">
+        <!-- Grid Waterfall -->
+        <div class="absolute inset-0 pointer-events-none opacity-40 z-0">
+            <div class="grid-line-v" style="left: var(--gx-1)"></div>
+            <div class="grid-line-v" style="left: var(--gx-2)"></div>
+            <div class="grid-line-v" style="left: var(--gx-3)"></div>
+        </div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-[8%] xl:px-[10%] relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                
+                <!-- Coluna Esquerda: Imagem com Clip Path Diagonal -->
+                <div class="relative w-full aspect-[4/5] mx-auto max-w-md lg:max-w-none group order-2 lg:order-1 mt-6 lg:mt-0">
+                    
+                    <!-- Borda Gradiente (Azul primário destacando cantos esquerdo-superior e direito-inferior) -->
+                    <div class="absolute inset-0 p-[2.5px] bg-gradient-to-br from-tiffany-500 via-transparent to-tiffany-500 z-0 transition-transform duration-500 group-hover:scale-[1.01]" style="clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);"></div>
+                    
+                    <!-- Imagem Clip-path Principal -->
+                    <div class="absolute inset-[2.5px] bg-zinc-100 z-10 overflow-hidden" style="clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);">
+                        <img src="public/fotos/ed-itaparica-3.webp" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" alt="Reabilitação de fachada ed-itaparica" />
+                        <div class="absolute inset-0 bg-tiffany-900/5 mix-blend-multiply pointer-events-none"></div>
+                    </div>
+
+                    <!-- Ícone Flutuante (Escudo) -->
+                    <div class="absolute top-[40%] left-[0] md:left-[-25px] -translate-x-1/2 -translate-y-1/2 z-30 bg-zinc-900 border border-zinc-700/50 rounded-[1.25rem] p-4 shadow-2xl flex items-center justify-center aspect-square w-[75px] md:w-[85px] animate-fade-in delay-200">
+                        <iconify-icon icon="solar:shield-check-bold-duotone" class="text-4xl text-tiffany-500 drop-shadow-[0_0_8px_rgba(0,134,189,0.3)]"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Textos -->
+                <div class="flex flex-col items-start gap-6 lg:gap-8 order-1 lg:order-2">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200/80 bg-zinc-50 shadow-sm animate-reveal delay-100">
+                        <span class="w-2 h-2 rounded-full bg-tiffany-500 shadow-[0_0_6px_rgba(0,134,189,0.5)]"></span>
+                        <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Referência Capixaba</span>
+                    </div>
+                    
+                    <!-- Heading H2 -->
+                    <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] font-bold text-zinc-900 tracking-tight animate-reveal delay-200">
+                        A Global Obras é <span class="text-tiffany-500">sinônimo de engenharia de precisão</span> na recuperação de fachadas e proteção predial
+                    </h2>
+                    
+                    <!-- Parágrafos -->
+                    <div class="flex flex-col gap-5 text-base lg:text-lg animate-reveal delay-300">
+                        <p class="text-zinc-700 leading-relaxed font-medium">
+                            Administrar um condomínio na Grande Vitória exige ir além da simples manutenção. Com um legado focado em <strong class="font-bold text-zinc-900">resolver patologias litorâneas</strong>, dedicamo-nos a transformar o custo da obra em investimento, garantindo <strong class="font-bold text-zinc-900">segurança estrutural e estética de alto padrão</strong>.
+                        </p>
+                        <p class="text-zinc-500 leading-relaxed">
+                            Nas orlas de Vitória, Vila Velha e região, somos a parceria técnica definitiva para síndicos que buscam eliminar infiltrações, combater a maresia e devolver a valorização premium aos seus edifícios.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SESSÃO: DIFERENCIAIS ==================== -->
+    <section id="diferenciais" class="relative w-full py-16 lg:py-24 bg-zinc-50 overflow-hidden z-10">
+        
+
+        <div class="max-w-[1300px] mx-auto px-6 lg:px-[6%] xl:px-[8%] relative z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                
+                <!-- Coluna Esquerda: Texto + Imagem Slider -->
+                <div class="lg:col-span-5 flex flex-col items-start gap-6 lg:gap-8 lg:mt-6">
+                    
+                    <div class="flex flex-col items-start gap-4">
+                        <!-- Badge Minimalista -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-zinc-200/60 bg-transparent">
+                            <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
+                            <span class="text-[10px] font-semibold text-zinc-600 uppercase tracking-widest">Por que?</span>
+                        </div>
+                        
+                        <!-- Heading H2 -->
+                        <h2 class="text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.65rem] leading-[1.25] font-bold text-zinc-800 tracking-tight">
+                            Por que <span class="text-tiffany-500">escolher</span> a Global Obras?
+                        </h2>
+                        
+                        <!-- Parágrafo Textual -->
+                        <p class="text-sm lg:text-base text-zinc-500 leading-relaxed mt-2 pr-4">
+                            Nossa equipe é <strong class="text-zinc-700 font-bold">altamente especializada</strong> em revitalização de fachadas, tratamento de concreto e impermeabilização na Grande Vitória, garantindo a <strong class="text-zinc-700 font-bold">longevidade, beleza e segurança do seu patrimônio</strong> contra o clima litorâneo.
+                        </p>
+                    </div>
+
+                    <!-- Imagem Simples -->
+                    <!-- Corte igual ao background no top-left -->
+                    <div class="relative w-full aspect-square mt-2 overflow-hidden shadow-sm" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);">
+                        <img src="public/fotos/ed-itaparica-2.webp" alt="Fachadas capixabas" class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]" />
+                    </div>
+
+                </div>
+
+                <!-- Coluna Direita: Grid de Cartões Clean (Retângulos estritos) -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 mt-10 lg:mt-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default">
+                        <span class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center text-center">+10</span>
+                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de Mercado</span>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default p-2">
+                        <span class="text-4xl lg:text-[2.75rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+100.000</span>
+                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m² verticais reformados</span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default">
+                        <span class="text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+30</span>
+                        <span class="text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                        <iconify-icon icon="solar:shield-check-outline" class="text-3xl text-slate-700"></iconify-icon>
+                        <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Garantia</strong> nos serviços prestados</span>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                        <iconify-icon icon="solar:ruler-angular-outline" class="text-3xl text-slate-700"></iconify-icon>
+                        <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Projetos</strong> de médio e grande escala</span>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-3 hover:border-zinc-300 transition-colors shadow-sm cursor-default px-6">
+                        <iconify-icon icon="solar:waterdrop-outline" class="text-3xl text-slate-700"></iconify-icon>
+                        <span class="text-[13px] font-bold text-zinc-500 leading-snug"><strong class="text-zinc-600">Proteção</strong> contra maresia e umidade</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
