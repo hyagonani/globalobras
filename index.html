@@ -802,6 +802,142 @@
         </div>
     </section>
 
+    <!-- ==================== SESSÃO: METODOLOGIA ==================== -->
+    <section id="metodologia" class="relative w-full py-24 lg:py-32 bg-[#fafafa] overflow-hidden z-10 border-t border-zinc-200/50">
+        <style>
+            @keyframes timeline-left-slide {
+                0% { opacity: 0; transform: translateX(-30px); filter: blur(6px); }
+                100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+            }
+            @keyframes timeline-right-slide {
+                0% { opacity: 0; transform: translateX(30px); filter: blur(6px); }
+                100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+            }
+            .anim-tl-left { opacity: 0; will-change: transform, opacity, filter; }
+            .anim-tl-left.is-visible { animation: timeline-left-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+            
+            .anim-tl-right { opacity: 0; will-change: transform, opacity, filter; }
+            .anim-tl-right.is-visible { animation: timeline-right-slide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        </style>
+        
+        <div class="max-w-[1100px] mx-auto px-6 lg:px-[6%] relative z-10">
+            
+            <!-- Header -->
+            <div class="flex flex-col items-center text-center gap-6 mb-20 lg:mb-24">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 scroll-fade-blur">
+                    <span class="w-1.5 h-1.5 rounded-none bg-tiffany-500 border border-tiffany-400"></span>
+                    <span class="text-[11px] font-bold text-tiffany-600 uppercase tracking-widest">O Jeito Global</span>
+                </div>
+                
+                <h2 class="text-4xl lg:text-5xl leading-[1.1] font-semibold text-zinc-900 tracking-tight max-w-3xl scroll-fade-blur delay-100">
+                    A Nossa <span class="text-tiffany-500">Metodologia</span> de Trabalho
+                </h2>
+                
+                <p class="text-lg lg:text-xl text-zinc-600 font-normal leading-relaxed max-w-2xl scroll-fade-blur delay-200">
+                    Da primeira vistoria à entrega final, elaboramos processos blindados que garantem a segurança do condomínio.
+                </p>
+            </div>
+
+            <!-- Box Principal da Timeline -->
+            <div class="relative w-full py-4 lg:py-6">
+                <!-- Linha Guia Vertical usando Tailwind puro para espelhar as Variáveis -->
+                <div class="absolute top-0 bottom-0 w-[2px] bg-tiffany-500 left-[32px] md:left-1/2 md:-translate-x-1/2 rounded-full opacity-30 z-0"></div>
+
+                <div class="flex flex-col gap-12 lg:gap-8 relative w-full z-10">
+                    
+                    <!-- Etapa 1 -->
+                    <div class="relative w-full flex justify-end md:justify-start anim-tl-left">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:chat-square-call-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Vistoria Estratégica</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Mapeamento técnico in loco para identificar patologias e necessidades reais do condomínio.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                    <!-- Etapa 2 -->
+                    <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:clipboard-text-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Laudo e Viabilidade</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Elaboração de um plano de ação detalhado com transparência total para aprovação em assembleia.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                    <!-- Etapa 3 -->
+                    <div class="relative w-full flex justify-end md:justify-start anim-tl-left lg:-mt-6">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:minimalistic-magnifer-zoom-in-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Orçamento Inteligente</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Detalhamento financeiro preciso, focado no melhor custo-benefício e valorização do imóvel.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                    <!-- Etapa 4 -->
+                    <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Execução e Segurança</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Início da obra com canteiro organizado, equipes certificadas (NR-35) e respeito à rotina dos moradores.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                    <!-- Etapa 5 -->
+                    <div class="relative w-full flex justify-end md:justify-start anim-tl-left lg:-mt-6">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:chart-square-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Monitoramento de Projetos</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Acompanhamento contínuo e relatórios periódicos, atestando o mais alto padrão técnico das intervenções.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                    <!-- Etapa 6 -->
+                    <div class="relative w-full flex justify-end anim-tl-right lg:-mt-6">
+                        <div class="w-[calc(100%-80px)] md:w-[calc(50%-48px)]">
+                            <div class="bg-white border border-zinc-200 overflow-hidden shadow-sm rounded-md p-8 lg:p-10 flex flex-col items-start md:items-center text-left md:text-center transition-all duration-300 hover:border-zinc-300 relative group">
+                                <iconify-icon icon="solar:verified-check-bold-duotone" class="text-4xl lg:text-5xl text-tiffany-500 mb-5 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                                <h3 class="text-xl lg:text-2xl font-semibold text-zinc-900 tracking-tight mb-3">Conclusão e Entrega da Obra</h3>
+                                <p class="text-base text-zinc-600 font-normal leading-relaxed md:px-2">Revisão final detalhada, limpeza total do canteiro e entrega oficial com emissão dos termos de garantia.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[32px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white border-2 border-tiffany-500 rounded-full flex items-center justify-center z-20 shadow-sm"><div class="w-2 h-2 bg-zinc-900 rounded-full"></div></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Script de observação exclusivo para a Timeline -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const tlObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('is-visible');
+                            tlObserver.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+                
+                document.querySelectorAll('.anim-tl-left, .anim-tl-right').forEach(el => tlObserver.observe(el));
+            });
+        </script>
+    </section>
+
     <!-- Script para Interatividade de Scroll -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
