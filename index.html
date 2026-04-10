@@ -7,8 +7,10 @@
     <title>Global Obras e Serviços - Revitalização de Fachadas na Grande Vitória</title>
 
     <!-- SEO: Meta Description -->
-    <meta name="description" content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Combatemos a maresia, infiltrações e restauramos a valorização premium do seu edifício. Solicite um orçamento!" />
-    <meta name="keywords" content="revitalização de fachadas, reforma de condomínios, impermeabilização, Grande Vitória, Vila Velha, Vitória, tratamento de concreto, maresia, Global Obras" />
+    <meta name="description"
+        content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Combatemos a maresia, infiltrações e restauramos a valorização premium do seu edifício. Solicite um orçamento!" />
+    <meta name="keywords"
+        content="revitalização de fachadas, reforma de condomínios, impermeabilização, Grande Vitória, Vila Velha, Vitória, tratamento de concreto, maresia, Global Obras" />
     <meta name="author" content="Global Obras e Serviços" />
     <meta name="robots" content="index, follow" />
 
@@ -21,7 +23,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Global Obras e Serviços" />
     <meta property="og:title" content="Global Obras e Serviços - Revitalização de Fachadas na Grande Vitória" />
-    <meta property="og:description" content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Combatemos a maresia, infiltrações e restauramos a valorização premium do seu edifício." />
+    <meta property="og:description"
+        content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Combatemos a maresia, infiltrações e restauramos a valorização premium do seu edifício." />
     <meta property="og:image" content="public/bg-hero.webp" />
     <meta property="og:image:alt" content="Revitalização de fachada de edifício na Grande Vitória" />
     <meta property="og:locale" content="pt_BR" />
@@ -29,7 +32,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Global Obras e Serviços - Revitalização de Fachadas" />
-    <meta name="twitter:description" content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Solicite um orçamento!" />
+    <meta name="twitter:description"
+        content="Especialistas em revitalização e reforma de fachadas em condomínios na Grande Vitória. Solicite um orçamento!" />
     <meta name="twitter:image" content="public/bg-hero.webp" />
 
     <!-- Theme Color (Chrome mobile toolbar) -->
@@ -327,10 +331,204 @@
             display: inline-flex;
             width: max-content;
         }
+
+        /* ── Button Float Animation ────────────────────────────────────── */
+        @keyframes btn-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* ── Border Glow Wrapper ───────────────────────────────────────── */
+        .btn-glow-wrap {
+            position: relative;
+            display: inline-flex;
+            border-radius: 9999px;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-glow-wrap:hover {
+            animation: btn-float 2.4s ease-in-out infinite;
+        }
+
+        /* Camada de glow blur — atrás do botão */
+        .btn-glow-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 9999px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            filter: blur(8px);
+        }
+
+        /* Borda fina nítida por cima */
+        .btn-glow-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 9999px;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1px;
+        }
+
+        .btn-glow-wrap:hover::before,
+        .btn-glow-wrap:hover::after {
+            opacity: 1;
+        }
+
+        /* ── Primário: gradiente tiffany (igual ao botão) ─────────────── */
+        .btn-glow-primary::before {
+            background: conic-gradient(from var(--glow-angle, 0deg) at var(--glow-x, 50%) var(--glow-y, 50%),
+                    #D6EDF7 0deg,
+                    #0086bd 90deg,
+                    #006d99 180deg,
+                    transparent 220deg,
+                    transparent 360deg);
+        }
+
+        .btn-glow-primary::after {
+            background: conic-gradient(from var(--glow-angle, 0deg) at var(--glow-x, 50%) var(--glow-y, 50%),
+                    rgba(214, 237, 247, 0.95) 0deg,
+                    rgba(0, 134, 189, 0.9) 90deg,
+                    rgba(0, 109, 153, 0.8) 180deg,
+                    transparent 220deg,
+                    transparent 360deg);
+        }
+
+        /* ── Secundário: gradiente zinc/slate (igual ao botão) ────────── */
+        .btn-glow-secondary::before {
+            background: conic-gradient(from var(--glow-angle, 0deg) at var(--glow-x, 50%) var(--glow-y, 50%),
+                    #e2e8f0 0deg,
+                    #94a3b8 90deg,
+                    #64748b 180deg,
+                    transparent 220deg,
+                    transparent 360deg);
+        }
+
+        .btn-glow-secondary::after {
+            background: conic-gradient(from var(--glow-angle, 0deg) at var(--glow-x, 50%) var(--glow-y, 50%),
+                    rgba(226, 232, 240, 0.9) 0deg,
+                    rgba(148, 163, 184, 0.8) 90deg,
+                    rgba(100, 116, 139, 0.7) 180deg,
+                    transparent 220deg,
+                    transparent 360deg);
+        }
+
+        /* O botão filho fica acima das camadas de glow */
+        .btn-glow-wrap>a,
+        .btn-glow-wrap>button {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── WhatsApp Floating Button ─────────────────────────────────── */
+        @keyframes wa-ping {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            70% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2ecc71 0%, #25D366 60%, #1da851 100%);
+            box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.55),
+                0 2px 8px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 16px 32px -4px rgba(37, 211, 102, 0.6),
+                0 4px 12px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Anel pulsante */
+        .wa-float::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, 0.4);
+            animation: wa-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+            pointer-events: none;
+        }
+
+        /* Tooltip */
+        .wa-float::after {
+            content: 'Falar no WhatsApp';
+            position: absolute;
+            right: calc(100% + 12px);
+            top: 50%;
+            transform: translateY(-50%) translateX(6px);
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 6px 12px;
+            border-radius: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .wa-float:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
     </style>
 </head>
 
 <body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased min-h-screen">
+
+    <!-- ==================== WhatsApp Floating Button ==================== -->
+    <a id="wa-float-btn"
+        href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+        target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Falar no WhatsApp">
+        <!-- WhatsApp SVG oficial -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="35" height="35">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     <!-- Ambient Background Glows -->
     <div class="ambient-glow top-0 left-[-200px]"></div>
@@ -357,11 +555,13 @@
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-2 transition-all animate-fade-in delay-200"
         style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center flex-shrink-0 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <div class="flex items-center flex-shrink-0 cursor-pointer"
+                onclick="window.scrollTo({top:0, behavior:'smooth'})">
                 <img src="public/logo-colorida.webp" alt="Global Obras"
                     class="max-h-[3.25rem] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300">
             </div>
-            <div class="hidden lg:flex gap-4 xl:gap-8 text-[10px] xl:text-[11px] font-semibold text-zinc-700/80 uppercase tracking-widest">
+            <div
+                class="hidden lg:flex gap-4 xl:gap-8 text-[10px] xl:text-[11px] font-semibold text-zinc-700/80 uppercase tracking-widest">
                 <a href="#" class="hover:text-zinc-900 transition-colors duration-300">Home</a>
                 <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Quem Somos</a>
                 <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
@@ -371,36 +571,52 @@
                 <a href="#contato" class="hover:text-zinc-900 transition-colors duration-300">Contato</a>
             </div>
             <div class="flex items-center gap-2">
-                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+                    target="_blank"
                     class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-xs font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-none border border-zinc-300/50 pt-2 pr-4 pb-2 pl-4 lg:pr-5 lg:pl-5 gap-x-2 gap-y-2 items-center flex-shrink-0"
                     style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative;">
-                    <span class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight hidden sm:block">Falar com Especialista</span>
-                    <span class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight block sm:hidden">WhatsApp</span>
+                    <span
+                        class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight hidden sm:block">Falar
+                        com Especialista</span>
+                    <span
+                        class="text-[10px] lg:text-[11px] font-medium text-black/60 tracking-tight block sm:hidden">WhatsApp</span>
                     <svg fill="none" height="14" stroke="#666" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="1.5" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
                     </svg>
                 </a>
-                
+
                 <!-- Hamburguer Button -->
-                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-10 h-[34px] gap-[4px] bg-white/40 border border-white/50 shadow-sm backdrop-blur-md rounded transition-colors active:bg-white/60">
-                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center" id="icon-bar-1"></span>
+                <button id="menu-toggle"
+                    class="lg:hidden flex flex-col justify-center items-center w-10 h-[34px] gap-[4px] bg-white/40 border border-white/50 shadow-sm backdrop-blur-md rounded transition-colors active:bg-white/60">
+                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center"
+                        id="icon-bar-1"></span>
                     <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300" id="icon-bar-2"></span>
-                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center" id="icon-bar-3"></span>
+                    <span class="w-4 h-[2px] bg-zinc-800 rounded transition-all duration-300 origin-center"
+                        id="icon-bar-3"></span>
                 </button>
             </div>
         </div>
 
         <!-- Popover Menu Movel -->
-        <div id="mobile-menu" class="absolute top-[100%] left-0 w-full bg-white/95 backdrop-blur-xl border-t border-zinc-200/50 shadow-2xl flex-col items-center py-8 gap-5 lg:hidden origin-top transition-all duration-300 opacity-0 pointer-events-none -translate-y-4 flex">
-            <a href="#" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Home</a>
-            <a href="#sobre" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Quem Somos</a>
-            <a href="#servicos" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Serviços</a>
-            <a href="#metodologia" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Metodologia</a>
-            <a href="#portfolio" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Portfólio</a>
-            <a href="#depoimentos" class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Depoimentos</a>
-            <a href="#contato" class="mobile-link text-[12px] font-bold text-tiffany-600 uppercase tracking-widest hover:text-white hover:bg-tiffany-600 transition-colors bg-tiffany-50 border border-tiffany-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Contato</a>
+        <div id="mobile-menu"
+            class="absolute top-[100%] left-0 w-full bg-white/95 backdrop-blur-xl border-t border-zinc-200/50 shadow-2xl flex-col items-center py-8 gap-5 lg:hidden origin-top transition-all duration-300 opacity-0 pointer-events-none -translate-y-4 flex">
+            <a href="#"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Home</a>
+            <a href="#sobre"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Quem
+                Somos</a>
+            <a href="#servicos"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Serviços</a>
+            <a href="#metodologia"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Metodologia</a>
+            <a href="#portfolio"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Portfólio</a>
+            <a href="#depoimentos"
+                class="mobile-link text-[12px] font-bold text-zinc-600 uppercase tracking-widest hover:text-tiffany-600 transition-colors bg-zinc-50 border border-zinc-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Depoimentos</a>
+            <a href="#contato"
+                class="mobile-link text-[12px] font-bold text-tiffany-600 uppercase tracking-widest hover:text-white hover:bg-tiffany-600 transition-colors bg-tiffany-50 border border-tiffany-200/50 px-6 py-2 rounded-full w-48 text-center shadow-sm">Contato</a>
         </div>
     </nav>
 
@@ -409,7 +625,8 @@
     <main
         class="relative w-full min-h-screen lg:h-screen lg:min-h-[800px] flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[64px] lg:pt-0">
 
-        <!-- ==================== ÁREA DIREITA: BACKGROUND IMAGE ==================== -->
+
+
         <!-- Visível em tela cheia no desktop (atrás da diagonal branca) -->
         <div class="hidden lg:block absolute inset-0 w-full h-full z-0 animate-fade-in">
             <img src="public/bg-hero.webp" alt="Revitalização de fachada"
@@ -419,7 +636,8 @@
         </div>
 
         <!-- Imagem Hero Mobile com destaque central -->
-        <div class="block lg:hidden w-full h-[55vh] relative z-0 order-1 animate-fade-in flex flex-col items-center justify-center px-6 pt-6 pb-2">
+        <div
+            class="block lg:hidden w-full h-[55vh] relative z-0 order-1 animate-fade-in flex flex-col items-center justify-center px-6 pt-6 pb-2">
             <img src="public/bg-hero.webp" alt="Revitalização de fachada"
                 class="absolute inset-0 w-full h-full object-cover object-bottom filter blur-[2px] opacity-70" />
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-900/10 pointer-events-none"></div>
@@ -435,7 +653,11 @@
         <!-- ==================== ÁREA ESQUERDA: CORTADA NA DIAGONAL ==================== -->
         <!-- Aumentado padding-top lg:pt-24 para manter a leitura limpa logo abaixo da nav -->
         <div
-            class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] flex flex-col justify-center px-6 py-12 lg:py-6 lg:px-[8%] xl:px-[10%] order-2 lg:order-none min-h-[55vh] lg:pt-20 rounded-t-[2.5rem] lg:rounded-none -mt-8 lg:mt-0 shadow-[0_-15px_40px_rgba(0,0,0,0.06)] lg:shadow-none">
+            class="relative z-10 w-full lg:absolute lg:top-0 lg:left-0 lg:bottom-0 lg:w-[67%] bg-white lg:[clip-path:polygon(0_0,100%_0,75%_100%,0_100%)] order-2 lg:order-none rounded-t-[2.5rem] lg:rounded-none -mt-8 lg:mt-0 shadow-[0_-15px_40px_rgba(0,0,0,0.06)] lg:shadow-none flex flex-col justify-center px-6 py-12 lg:py-0 lg:px-0">
+
+            <!-- ==================== DOT GRID CANVAS ==================== -->
+            <canvas id="hero-dot-grid" aria-hidden="true"
+                class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style="z-index: 0;"></canvas>
 
             <!-- Grid de fundo da área branca -->
             <div class="absolute inset-0 pointer-events-none opacity-40 z-0">
@@ -444,11 +666,10 @@
                 <div class="grid-line-v" style="left: var(--gx-3)"></div>
             </div>
 
-            <!-- Conteúdo de Texto -->
-            <div class="relative z-10 max-w-2xl mt-4 lg:mt-0">
+            <!-- Conteúdo de Texto: visível SÓ no mobile (desktop usa o grid overlay abaixo) -->
+            <div class="lg:hidden relative z-10 max-w-2xl mt-4">
 
-                <h1
-                    class="leading-[0.95] text-5xl lg:text-[4.5rem] font-medium text-zinc-900 tracking-tighter mb-8 animate-reveal">
+                <h1 class="leading-[0.95] text-5xl font-medium text-zinc-900 tracking-tighter mb-8">
                     Especialistas em <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Revitalização</span>
                     e <span
@@ -461,46 +682,38 @@
                 </h1>
 
                 <p
-                    class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6 animate-reveal delay-100">
+                    class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6">
                     O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de alto
                     padrão para máxima valorização em condomínios na Grande Vitória.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-3 lg:mb-24 mb-16 gap-x-3 gap-y-3 animate-reveal delay-200">
-
-                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
-                        class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-xl gap-x-3 gap-y-3 items-center justify-between"
-                        style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
-                        <span class="text-sm font-medium tracking-tight text-zinc-900">
-                            Solicitar Orçamento
-                        </span>
+                <div class="flex flex-col sm:flex-row gap-3 mb-10">
+                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+                        target="_blank"
+                        class="flex text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-3 items-center justify-between"
+                        style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0,134,189,0.7)">
+                        <span class="text-sm font-medium tracking-tight text-zinc-900">Solicitar Orçamento</span>
                         <span class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1">
-                            <svg class="group-hover:translate-x-1 transition-transform" fill="none" height="16"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                style="color: rgb(15, 23, 42);" viewBox="0 0 24 24" width="16"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 7h10v10"></path>
-                                <path d="M7 17 17 7"></path>
+                            <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" style="color:rgb(15,23,42)"
+                                viewBox="0 0 24 24" width="16">
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
                             </svg>
                         </span>
                     </a>
-
                     <a href="#portfolio"
-                        class="hover:bg-zinc-50 hover:text-zinc- transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] gap-x-2 gap-y-2 items-center"
-                        style="box-shadow: 0 18px 35px rgba(31, 41, 55, 0.25), 0 0 0 1px rgba(209, 213, 219, 0.3); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
-                        <span class="text-sm font-medium text-black/60 tracking-tight">
-                            Ver Portfólio
-                        </span>
+                        class="flex text-sm font-medium text-black/60 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-2 items-center"
+                        style="background: linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.1)); box-shadow: 0 8px 20px rgba(31,41,55,0.15), 0 0 0 1px rgba(209,213,219,0.3)">
+                        <span class="text-sm font-medium text-black/60 tracking-tight">Ver Portfólio</span>
                         <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
+                            stroke-width="1.5" viewBox="0 0 24 24" width="16">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
                         </svg>
                     </a>
-
                 </div>
 
-                <!-- Prova Social (Avatars e Texto) -->
                 <div
                     class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-md border border-zinc-100/50">
                     <div class="flex -space-x-3">
@@ -513,29 +726,112 @@
                         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Síndica"
                             class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
                     </div>
-                    <p class="text-xs lg:text-sm text-zinc-600 font-semibold leading-tight">
-                        Atendimento exclusivo para <br class="hidden sm:block" /> síndicos e gestores prediais.
+                    <p class="text-xs text-zinc-600 font-semibold leading-tight">
+                        Atendimento exclusivo para síndicos e gestores prediais.
                     </p>
                 </div>
 
-            </div>
+            </div><!-- /mobile text -->
         </div>
 
         </div>
 
-        <!-- ==================== CARTÃO FLUTUANTE (DESKTOP) ==================== -->
-        <!-- Imagem sobreposta flutuante com design card do DS. 
-             Aspecto 0.8 (4/5) alcançado através de relativas w e h aspect-[4/5]
-             Posicionada de forma flexível para alinhar perfeitamente com o centro do texto à esquerda descontando nav e rodapé.
+        <!-- ==================== DESKTOP HERO GRID (centrado e balanceado) ==================== -->
+        <!-- Mostra apenas em lg+. Texto à esquerda, imagem à direita, margens iguais.
+             A imagem usa a ALTURA do hero como dimensão determinante (aspect-[4/5]), width é auto.
         -->
-        <div
-            class="hidden lg:flex absolute inset-0 pt-[64px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[8%] z-20 pointer-events-none">
-            <div
-                class="w-[430px] xl:w-[480px] pointer-events-auto glass-card rounded-[0.5rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-300">
-                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando em rapel nas fachadas"
-                    class="w-full h-auto aspect-[4/5] object-cover rounded-[0.25rem]" />
+        <div class="hidden lg:flex absolute inset-0 pt-[64px] pb-[48px] z-20 items-center justify-center">
+            <!-- Container centrado com margens iguais dos dois lados -->
+            <div class="w-full max-w-[1500px] px-[6%] mx-auto flex items-center gap-8 xl:gap-12 h-full">
+
+                <!-- Coluna esquerda: texto -->
+                <div class="flex-1 flex flex-col justify-center min-w-0">
+
+                    <h1
+                        class="leading-[0.95] text-5xl lg:text-[4rem] xl:text-[4.5rem] font-medium text-zinc-900 tracking-tighter mb-8 animate-reveal">
+                        Especialistas em <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Revitalização</span>
+                        e <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Reforma</span>
+                        de <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Fachadas</span>
+                        em Condomínios na <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 via-tiffany-300 to-tiffany-100 font-light">Grande
+                            Vitória.</span>
+                    </h1>
+
+                    <p
+                        class="text-sm text-zinc-500 font-medium max-w-md mb-10 leading-relaxed tracking-wide border-l-2 border-zinc-200 pl-6 animate-reveal delay-100">
+                        O visual do seu edifício dita o valor do seu patrimônio. Engenharia de precisão e estética de
+                        alto
+                        padrão para máxima valorização em condomínios na Grande Vitória.
+                    </p>
+
+                    <div class="flex flex-row gap-3 mb-10 animate-reveal delay-200">
+                        <!-- Botão Primário -->
+                        <div class="btn-glow-wrap btn-glow-primary">
+                            <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+                                target="_blank"
+                                class="hover:bg-black transition-all flex group shadow-xl hover:shadow-2xl text-sm font-medium text-zinc-900 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-3 items-center justify-between"
+                                style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0,134,189,0.7), inset 0 4px 8px rgba(214,237,247,0.9), inset 0 -4px 8px rgba(0,134,189,0.9)">
+                                <span class="text-sm font-medium tracking-tight text-zinc-900">Solicitar
+                                    Orçamento</span>
+                                <span class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1">
+                                    <svg class="group-hover:translate-x-1 transition-transform" fill="none" height="16"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5" style="color:rgb(15,23,42)" viewBox="0 0 24 24" width="16">
+                                        <path d="M7 7h10v10" />
+                                        <path d="M7 17 17 7" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        <!-- Botão Secundário -->
+                        <div class="btn-glow-wrap btn-glow-secondary">
+                            <a href="#portfolio"
+                                class="hover:bg-zinc-50 transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-2 items-center"
+                                style="box-shadow: 0 18px 35px rgba(31,41,55,0.25), 0 0 0 1px rgba(209,213,219,0.3); color:#e5e7eb">
+                                <span class="text-sm font-medium text-black/60 tracking-tight">Ver Portfólio</span>
+                                <svg fill="none" height="16" stroke="#666" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Prova Social -->
+                    <div
+                        class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-md border border-zinc-100/50 w-fit animate-reveal delay-300">
+                        <div class="flex -space-x-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Síndico"
+                                class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Gestora"
+                                class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Morador"
+                                class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Síndica"
+                                class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
+                        </div>
+                        <p class="text-sm text-zinc-600 font-semibold leading-tight">
+                            Atendimento exclusivo para síndicos e gestores prediais.
+                        </p>
+                    </div>
+
+                </div><!-- /coluna texto -->
+
+                <!-- Coluna direita: imagem baseada na ALTURA disponível -->
+                <div class="flex items-center justify-end self-stretch py-4 flex-shrink-0">
+                    <div
+                        class="h-[85%] aspect-[4/5] glass-card rounded-[0.5rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-300 overflow-hidden">
+                        <img src="public/fotos/ed-itaparica.webp" alt="Revitalização de fachada de edifício"
+                            class="h-full w-full object-cover rounded-[0.25rem]" />
+                    </div>
+                </div><!-- /coluna imagem -->
+
             </div>
-        </div>
+        </div><!-- /desktop hero grid -->
 
         <!-- ==================== FAIXA INFERIOR (MARQUEE) ==================== -->
         <div
@@ -679,7 +975,8 @@
                         class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-100 p-2 sm:p-0">
                         <span
                             class="text-5xl sm:text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center text-center">+10</span>
-                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de Mercado</span>
+                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Anos de
+                            Mercado</span>
                     </div>
 
                     <!-- Card 2 -->
@@ -687,7 +984,8 @@
                         class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default p-2 scroll-fade-blur delay-200">
                         <span
                             class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+100k</span>
-                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m² verticais
+                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">m²
+                            verticais
                             reformados</span>
                     </div>
 
@@ -696,7 +994,8 @@
                         class="bg-white rounded-md h-[160px] lg:h-[190px] border border-zinc-200 flex flex-col items-center justify-center text-center gap-1 hover:border-zinc-300 transition-colors shadow-sm cursor-default scroll-fade-blur delay-300 p-2 sm:p-0">
                         <span
                             class="text-5xl sm:text-[3rem] lg:text-[3.5rem] font-bold text-tiffany-500 leading-none tracking-tighter self-center">+30</span>
-                        <span class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
+                        <span
+                            class="text-[11px] sm:text-[12px] font-semibold text-zinc-500 mt-1 tracking-wide">Funcionários</span>
                     </div>
 
                     <!-- Card 4 -->
@@ -1114,8 +1413,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
                         </div>
-                        <button
-                            onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
+                        <button onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
                             class="absolute bottom-5 left-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
                             aria-label="Abrir em tela cheia">
                             <iconify-icon icon="solar:maximize-square-bold-duotone"></iconify-icon>
@@ -1137,8 +1435,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
                         </div>
-                        <button
-                            onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
+                        <button onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
                             class="absolute bottom-5 left-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
                             aria-label="Abrir em tela cheia">
                             <iconify-icon icon="solar:maximize-square-bold-duotone"></iconify-icon>
@@ -1160,8 +1457,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
                         </div>
-                        <button
-                            onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
+                        <button onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
                             class="absolute bottom-5 left-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
                             aria-label="Abrir em tela cheia">
                             <iconify-icon icon="solar:maximize-square-bold-duotone"></iconify-icon>
@@ -1183,8 +1479,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
                         </div>
-                        <button
-                            onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
+                        <button onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
                             class="absolute bottom-5 left-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
                             aria-label="Abrir em tela cheia">
                             <iconify-icon icon="solar:maximize-square-bold-duotone"></iconify-icon>
@@ -1206,8 +1501,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/10 to-transparent pointer-events-none">
                         </div>
-                        <button
-                            onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
+                        <button onclick="openVideoFullscreen(this.parentElement.querySelector('video'))"
                             class="absolute bottom-5 left-5 bg-white/20 hover:bg-tiffany-500 backdrop-blur-md text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-20 shadow-md border border-white/30 text-xl cursor-pointer"
                             aria-label="Abrir em tela cheia">
                             <iconify-icon icon="solar:maximize-square-bold-duotone"></iconify-icon>
@@ -1227,99 +1521,150 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
                 <!-- Destaque: Edifício Itaparica Connection Residence -->
-                <div class="sm:col-span-2 lg:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                <div
+                    class="sm:col-span-2 lg:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
                     <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[400px]">
                         <img src="public/fotos/ed-itaparica.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Itaparica Connection Residence">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Itaparica Connection</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Ed. Itaparica Connection</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
+                                Velha/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Açores -->
-                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                <div
+                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
                         <img src="public/fotos/acores-1.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Açores">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Edifício Açores</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Edifício Açores</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Casa do Adubo -->
-                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
-                        <img src="public/fotos/adubo-1.webp"
+                <div
+                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                        <img src="public/fotos/adubo-2.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Casa do Adubo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Casa do Adubo</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Serra/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Casa do Adubo</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Serra/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Judith Castelo -->
-                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                <div
+                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
                         <img src="public/fotos/ed-judith.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Judith Castelo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Judith Castelo</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Ed. Judith Castelo</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Praia do Morro -->
-                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                <div
+                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-100 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
                         <img src="public/fotos/ed-praiadomorro.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Praia do Morro">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Praia do Morro</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Ed. Praia do Morro</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
+                                Velha/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Caleche -->
-                <div class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                <div
+                    class="glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-300 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
                         <img src="public/fotos/caleche-1.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Caleche">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Edifício Caleche</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Edifício Caleche</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vitória/ES</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Edifício Praia das Castanheiras -->
-                <div class="sm:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
-                    <div class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
+                <div
+                    class="sm:col-span-2 glass-card p-2 rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl border border-white/60 transition-all duration-700 hover:-translate-y-2 hover:shadow-tiffany-900/10 scroll-fade-blur delay-500 group">
+                    <div
+                        class="relative w-full h-full overflow-hidden rounded-xl shadow-inner min-h-[350px] lg:min-h-[400px]">
                         <img src="public/fotos/praiacastanheiras-1.webp"
                             class="absolute inset-0 w-full h-full object-cover filter saturate-[0.8] transition-transform duration-[2s] ease-in-out group-hover:scale-110"
                             alt="Edifício Praia das Castanheiras">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-zinc-900/10 opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end pointer-events-none">
-                            <h3 class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">Ed. Praia das Castanheiras</h3>
-                            <span class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila Velha/ES</span>
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight leading-[1.1] mb-1 drop-shadow-lg transform group-hover:-translate-y-1 transition-transform duration-500">
+                                Ed. Praia das Castanheiras</h3>
+                            <span
+                                class="text-tiffany-300 text-[13px] font-semibold uppercase tracking-wide drop-shadow transform group-hover:-translate-y-1 transition-transform duration-500 delay-75 block">Vila
+                                Velha/ES</span>
                         </div>
                     </div>
                 </div>
@@ -1328,7 +1673,8 @@
 
             <!-- CTA Button -->
             <div class="mt-16 lg:mt-24 flex justify-center scroll-fade-blur delay-400">
-                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+                    target="_blank"
                     class="hover:bg-black transition-all flex group shadow-zinc-900/10 hover:shadow-2xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 text-[15px] font-semibold text-zinc-900 rounded-full py-4 px-8 gap-x-3 items-center justify-center cursor-pointer"
                     style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
                     <span class="tracking-tight text-zinc-900">
@@ -1404,11 +1750,13 @@
     <section id="depoimentos" class="py-24 bg-white relative">
         <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
             <div class="flex flex-col items-center text-center gap-6 mb-16 scroll-fade-blur">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded border border-zinc-200/60 bg-zinc-50 shadow-sm">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded border border-zinc-200/60 bg-zinc-50 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
                     <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Depoimentos</span>
                 </div>
-                <h2 class="text-3xl lg:text-4xl font-semibold text-zinc-900 tracking-tight font-display mt-2 sm:mt-0 mb-2">
+                <h2
+                    class="text-3xl lg:text-4xl font-semibold text-zinc-900 tracking-tight font-display mt-2 sm:mt-0 mb-2">
                     A palavra de quem <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-tiffany-500 to-tiffany-300">administra
                         com excelência</span>.
@@ -1508,7 +1856,8 @@
                 </p>
 
                 <div class="flex justify-center items-center relative z-10">
-                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F" target="_blank"
+                    <a href="https://wa.me/5527988591001?text=Ol%C3%A1%20Carlos%2C%20vim%20do%20site%20e%20preciso%20de%20um%20or%C3%A7amento.%0APode%20me%20ajudar%3F"
+                        target="_blank"
                         class="hover:bg-black transition-all duration-300 flex group shadow-zinc-900/10 hover:shadow-[0_20px_40px_-5px_rgba(0,134,189,0.5)] hover:-translate-y-1 hover:scale-[1.02] text-[15px] font-semibold text-zinc-900 rounded-full py-4 px-8 gap-x-3 items-center justify-center cursor-pointer"
                         style="background: radial-gradient(circle at 10% 0%, #D6EDF7 0%, #0086bd 100%); box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7), inset 0 4px 8px rgba(214, 237, 247, 0.9), inset 0 -4px 8px rgba(0, 134, 189, 0.9)">
                         <span class="tracking-tight text-zinc-900">
@@ -1664,16 +2013,16 @@
             const bar2 = document.getElementById('icon-bar-2');
             const bar3 = document.getElementById('icon-bar-3');
             const mobileLinks = document.querySelectorAll('.mobile-link');
-            
+
             let isMenuOpen = false;
 
             function toggleMenu() {
                 isMenuOpen = !isMenuOpen;
-                if(isMenuOpen) {
+                if (isMenuOpen) {
                     // Abrir Menu
                     mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
                     mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                    
+
                     // Animação do X
                     bar1.classList.add('rotate-45', 'translate-y-[6px]');
                     bar2.classList.add('opacity-0');
@@ -1682,7 +2031,7 @@
                     // Fechar Menu
                     mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
                     mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
-                    
+
                     // Voltar Hamburger
                     bar1.classList.remove('rotate-45', 'translate-y-[6px]');
                     bar2.classList.remove('opacity-0');
@@ -1694,7 +2043,7 @@
 
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    if(isMenuOpen) toggleMenu();
+                    if (isMenuOpen) toggleMenu();
                 });
             });
         });
@@ -1714,6 +2063,147 @@
                 videoEl.webkitEnterFullscreen();
             }
         }
+    </script>
+
+    <!-- ==================== DOT GRID — Hero Interactive Background ==================== -->
+    <script>
+        (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            var canvas = document.getElementById('hero-dot-grid');
+            if (!canvas) return;
+
+            var ctx = canvas.getContext('2d');
+
+            // ── Config ────────────────────────────────────────────────────
+            var DOT_R = 1.5;
+            var GAP = 24;
+            var BASE_COLOR = [180, 185, 190];   // cinza neutro
+            var ACT_COLOR = [0, 134, 189];     // tiffany-500
+            var BASE_ALPHA = 0.2;
+            var MAX_ALPHA = 0.5;
+            var PROXIMITY = 90;
+
+            var mouse = { x: -9999, y: -9999 };
+            var dots = [];
+            var raf = null;
+            var lW = 0;   // largura lógica (CSS px)
+            var lH = 0;   // altura lógica (CSS px)
+
+            // ── Resize ────────────────────────────────────────────────────
+            function resize() {
+                var dpr = window.devicePixelRatio || 1;
+                var rect = canvas.getBoundingClientRect();
+                lW = rect.width;
+                lH = rect.height;
+                canvas.width = Math.round(lW * dpr);
+                canvas.height = Math.round(lH * dpr);
+                // setTransform sem acumulação (substitui ctx.scale repetido)
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                buildDots();
+            }
+
+            function buildDots() {
+                dots = [];
+                var cols = Math.ceil(lW / GAP) + 1;
+                var rows = Math.ceil(lH / GAP) + 1;
+                var ox = (lW % GAP) / 2;
+                var oy = (lH % GAP) / 2;
+                for (var r = 0; r < rows; r++) {
+                    for (var c = 0; c < cols; c++) {
+                        dots.push({ x: ox + c * GAP, y: oy + r * GAP });
+                    }
+                }
+            }
+
+            // ── Draw ──────────────────────────────────────────────────────
+            function draw() {
+                ctx.clearRect(0, 0, lW, lH);
+                var mx = mouse.x, my = mouse.y;
+
+                for (var i = 0; i < dots.length; i++) {
+                    var d = dots[i];
+                    var dx = d.x - mx, dy = d.y - my;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
+                    var t = dist < PROXIMITY ? (1 - dist / PROXIMITY) : 0;
+
+                    var r = Math.round(BASE_COLOR[0] + (ACT_COLOR[0] - BASE_COLOR[0]) * t);
+                    var g = Math.round(BASE_COLOR[1] + (ACT_COLOR[1] - BASE_COLOR[1]) * t);
+                    var b = Math.round(BASE_COLOR[2] + (ACT_COLOR[2] - BASE_COLOR[2]) * t);
+                    var a = BASE_ALPHA + (MAX_ALPHA - BASE_ALPHA) * t;
+                    var radius = DOT_R + t * 0.8;
+
+                    ctx.beginPath();
+                    ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a.toFixed(3) + ')';
+                    ctx.fill();
+                }
+                raf = requestAnimationFrame(draw);
+            }
+
+            // ── Mouse — ouvir no hero container completo (<main>) ──
+            var hero = canvas.closest('main') || document.body;
+            hero.addEventListener('mousemove', function (e) {
+                var rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            hero.addEventListener('mouseleave', function () {
+                mouse.x = -9999;
+                mouse.y = -9999;
+            });
+
+            // ── Resize listener ───────────────────────────────────────────
+            window.addEventListener('resize', function () {
+                cancelAnimationFrame(raf);
+                resize();
+                raf = requestAnimationFrame(draw);
+            });
+
+            // ── Boot: aguardar layout completo ────────────────────────────
+            function boot() {
+                resize();
+                if (raf) cancelAnimationFrame(raf);
+                draw();
+            }
+
+            if (document.readyState === 'complete') {
+                boot();
+            } else {
+                window.addEventListener('load', boot);
+            }
+        })();
+    </script>
+
+    <!-- ==================== BORDER GLOW — Mouse Tracking ==================== -->
+    <script>
+        (function () {
+            var wraps = document.querySelectorAll('.btn-glow-wrap');
+            if (!wraps.length) return;
+
+            wraps.forEach(function (wrap) {
+                wrap.addEventListener('mouseleave', function () {
+                    // reset do ângulo ao sair
+                    wrap.style.setProperty('--glow-x', '50%');
+                    wrap.style.setProperty('--glow-y', '50%');
+                    wrap.style.setProperty('--glow-angle', '0deg');
+                });
+
+                // Rastrear posição do mouse → rotacionar o conic-gradient
+                wrap.addEventListener('mousemove', function (e) {
+                    var rect = wrap.getBoundingClientRect();
+                    var cx = rect.left + rect.width / 2;
+                    var cy = rect.top + rect.height / 2;
+                    var angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
+                    var px = ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%';
+                    var py = ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%';
+
+                    wrap.style.setProperty('--glow-angle', angle.toFixed(1) + 'deg');
+                    wrap.style.setProperty('--glow-x', px);
+                    wrap.style.setProperty('--glow-y', py);
+                });
+            });
+        })();
     </script>
 </body>
 
