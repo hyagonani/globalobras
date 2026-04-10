@@ -147,27 +147,27 @@
 <body class="bg-zinc-50 text-slate-800 relative overflow-x-hidden antialiased min-h-screen">
 
     <!-- Navbar do Design System -->
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-4 transition-all animate-fade-in delay-200" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b px-6 py-2 transition-all animate-fade-in delay-200" style="background: radial-gradient(circle at 10% 0%, rgba(214, 237, 247, 0.85) 0%, rgba(0, 134, 189, 0.65) 100%); border-color: rgba(0, 134, 189, 0.2); box-shadow: 0 8px 32px -8px rgba(0, 134, 189, 0.25), inset 0 2px 4px rgba(214, 237, 247, 0.6), inset 0 -1px 3px rgba(0, 134, 189, 0.3);">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4 overflow-x-auto">
             <div class="flex items-center flex-shrink-0 cursor-pointer">
-                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[4rem] w-auto">
+                <img src="public/logo-colorida.webp" alt="Global Obras" class="max-h-[2.5rem] w-auto">
             </div>
-            <div class="hidden md:flex gap-8 text-[14px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
+            <div class="hidden md:flex gap-8 text-[12px] font-medium text-zinc-700/70 uppercase tracking-[0.15em]">
                 <a href="#servicos" class="hover:text-zinc-900 transition-colors duration-300">Serviços</a>
                 <a href="#portfolio" class="hover:text-zinc-900 transition-colors duration-300">Portfólio</a>
                 <a href="#sobre" class="hover:text-zinc-900 transition-colors duration-300">Sobre nós</a>
                 <a href="#contato" class="hover:text-zinc-900 transition-colors duration-300">Contato</a>
             </div>
-            <button class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-sm font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-full pt-2.5 pr-6 pb-2.5 pl-6 gap-x-2 gap-y-2 items-center" style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px">
-                <span class="text-sm font-medium text-black/60 tracking-tight">Falar com Especialista</span>
-                <svg fill="none" height="16" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            <button class="hover:bg-zinc-50 hover:text-zinc-900 transition-all flex text-xs font-medium text-zinc-600 bg-gradient-to-b from-black/5 via-black/10 to-black/5 rounded-none border border-zinc-300/50 pt-2 pr-5 pb-2 pl-5 gap-x-2 gap-y-2 items-center" style="box-shadow: 0 15px 25px -10px rgba(0, 134, 189, 0.7); color: #e5e7eb; position: relative;">
+                <span class="text-xs font-medium text-black/60 tracking-tight">Falar com Especialista</span>
+                <svg fill="none" height="14" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </button>
         </div>
     </nav>
 
     <!-- HERO SECTION FULL-HEIGHT -->
-    <!-- Adicionado pt-24 para compensar a navbar fixa na altura correta no container pai -->
-    <main class="relative w-full min-h-screen lg:h-screen lg:min-h-[800px] flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[80px] lg:pt-0">
+    <!-- Adicionado pt-16 para compensar a navbar fixa na altura correta no container pai -->
+    <main class="relative w-full min-h-screen lg:h-screen lg:min-h-[800px] flex flex-col lg:block overflow-hidden bg-zinc-50 lg:bg-transparent pb-10 lg:pb-0 pt-[64px] lg:pt-0">
         
         <!-- ==================== ÁREA DIREITA: BACKGROUND IMAGE ==================== -->
         <!-- Visível em tela cheia no desktop (atrás da diagonal branca) -->
@@ -181,8 +181,8 @@
         <div class="block lg:hidden w-full h-[50vh] relative z-0 order-2">
             <img src="public/fotos/ed-itaparica-2.webp" alt="Revitalização de fachada" class="w-full h-full object-cover object-center" />
             <!-- Cartão Flutuante (Floating Image) Mobile -->
-            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-[1.2rem] shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md">
-                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação" class="w-full h-auto aspect-[4/5] object-cover rounded-[0.9rem]" />
+            <div class="absolute bottom-4 right-4 glass-card p-1.5 rounded-md shadow-xl w-[240px] z-10 bg-white/60 backdrop-blur-md">
+                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando na reabilitação" class="w-full h-auto aspect-[4/5] object-cover rounded-sm" />
             </div>
         </div>
 
@@ -211,15 +211,15 @@
                 <div class="flex flex-col items-start gap-8 animate-reveal delay-200">
                     
                     <!-- Primary CTA (Botão exato do Design System) -->
-                    <button class="btn-op1-primary px-8 py-4 text-zinc-900 text-sm font-bold rounded-full transition-all active:scale-95 flex items-center gap-3 group">
+                    <button class="btn-op1-primary px-8 py-4 text-zinc-900 text-sm font-bold rounded-none border border-tiffany-300 transition-all active:scale-95 flex items-center gap-3 group">
                         <span class="uppercase tracking-wider">Solicitar Orçamento</span>
-                        <div class="flex items-center justify-center rounded-full bg-black/10 px-3 py-1 -mr-3">
+                        <div class="flex items-center justify-center rounded-none bg-black/10 px-3 py-1 -mr-3 border border-tiffany-700/20">
                              <iconify-icon icon="solar:arrow-right-up-linear" class="w-4 h-4 text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></iconify-icon>
                         </div>
                     </button>
                     
                     <!-- Prova Social (Avatars e Texto) -->
-                    <div class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-full border border-zinc-100/50">
+                    <div class="flex items-center gap-4 bg-zinc-50/80 backdrop-blur px-4 py-3 rounded-md border border-zinc-100/50">
                         <div class="flex -space-x-3">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Síndico" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Gestora" class="w-10 h-10 rounded-full border-[2.5px] border-white shadow-sm object-cover" />
@@ -241,9 +241,9 @@
              Aspecto 0.8 (4/5) alcançado através de relativas w e h aspect-[4/5]
              Posicionada de forma flexível para alinhar perfeitamente com o centro do texto à esquerda descontando nav e rodapé.
         -->
-        <div class="hidden lg:flex absolute inset-0 pt-[80px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[8%] z-20 pointer-events-none">
-            <div class="w-[430px] xl:w-[480px] pointer-events-auto glass-card rounded-[2rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-300">
-                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando em rapel nas fachadas" class="w-full h-auto aspect-[4/5] object-cover rounded-[1.5rem]" />
+        <div class="hidden lg:flex absolute inset-0 pt-[64px] pb-[48px] items-center justify-end pr-[4%] 2xl:pr-[8%] z-20 pointer-events-none">
+            <div class="w-[430px] xl:w-[480px] pointer-events-auto glass-card rounded-[0.5rem] p-2 bg-white/40 backdrop-blur-lg shadow-2xl animate-reveal delay-300">
+                <img src="public/fotos/ed-itaparica.webp" alt="Operários trabalhando em rapel nas fachadas" class="w-full h-auto aspect-[4/5] object-cover rounded-[0.25rem]" />
             </div>
         </div>
 
@@ -284,7 +284,7 @@
                     </div>
 
                     <!-- Ícone Flutuante (Escudo) -->
-                    <div class="absolute top-[40%] left-[0] md:left-[-25px] -translate-x-1/2 -translate-y-1/2 z-30 bg-zinc-900 border border-zinc-700/50 rounded-[1.25rem] p-4 shadow-2xl flex items-center justify-center aspect-square w-[75px] md:w-[85px] animate-fade-in delay-200">
+                    <div class="absolute top-[40%] left-[0] md:left-[-25px] -translate-x-1/2 -translate-y-1/2 z-30 bg-zinc-900 border border-zinc-700/50 rounded-md p-4 shadow-2xl flex items-center justify-center aspect-square w-[75px] md:w-[85px] animate-fade-in delay-200">
                         <iconify-icon icon="solar:shield-check-bold-duotone" class="text-4xl text-tiffany-500 drop-shadow-[0_0_8px_rgba(0,134,189,0.3)]"></iconify-icon>
                     </div>
                 </div>
@@ -292,8 +292,8 @@
                 <!-- Coluna Direita: Textos -->
                 <div class="flex flex-col items-start gap-6 lg:gap-8 order-1 lg:order-2">
                     <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200/80 bg-zinc-50 shadow-sm animate-reveal delay-100">
-                        <span class="w-2 h-2 rounded-full bg-tiffany-500 shadow-[0_0_6px_rgba(0,134,189,0.5)]"></span>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded border border-zinc-200/80 bg-zinc-50 shadow-sm animate-reveal delay-100">
+                        <span class="w-2 h-2 rounded-none bg-tiffany-500 shadow-[0_0_6px_rgba(0,134,189,0.5)] border border-tiffany-400"></span>
                         <span class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest">Referência Capixaba</span>
                     </div>
                     
@@ -416,8 +416,8 @@
             <!-- Header Centralizado -->
             <div class="flex flex-col items-center text-center gap-6 mb-16 lg:mb-24">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-tiffany-50 border border-tiffany-100 animate-reveal">
-                    <span class="w-1.5 h-1.5 rounded-full bg-tiffany-500"></span>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-tiffany-50 border border-tiffany-100 animate-reveal">
+                    <span class="w-1.5 h-1.5 rounded-none bg-tiffany-500 border border-tiffany-400"></span>
                     <span class="text-[11px] font-bold text-tiffany-600 uppercase tracking-widest">Soluções</span>
                 </div>
                 
@@ -432,77 +432,70 @@
                 </p>
             </div>
 
-            <!-- Grid de Cartões de Serviço -->
-            <!-- 1 col mobile, 2 col tablet, 4 col desktop largo -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Lista de Serviços Alternados -->
+            <div class="flex flex-col gap-8 lg:gap-10">
                 
-                <!-- Card 1 -->
-                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-300">
-                    <!-- Brilho no Hover (Gradiente Semântico - Brand Main) -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
-                    <!-- Borda superior Gradiente animada -->
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    
-                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
-                        <iconify-icon icon="solar:city-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
-                    </div>
-                    
-                    <div class="relative z-10 flex flex-col gap-3">
-                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Revitalização Premium de Fachadas</h3>
-                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                <!-- Serviço 1: Revitalização (Texto Esquerda) -->
+                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm animate-reveal delay-300 bg-gradient-to-tr from-zinc-900 to-zinc-700">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:paint-roller-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
+                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Revitalização Premium de Fachadas</h3>
+                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
                             Retrofit estético, lavagem técnica de alta pressão, reposição segura de pastilhas e aplicação de hidrofugantes. O novo cartão de visitas do seu prédio.
                         </p>
                     </div>
+                    <!-- Imagem -->
+                    <div class="w-full lg:w-[50%] min-h-[300px] lg:min-h-[100%] relative bg-zinc-100">
+                        <img src="public/fotos/ed-itaparica-3.webp" alt="Revitalização de Fachadas" class="absolute inset-0 w-full h-full object-cover" />
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-400">
-                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    
-                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
-                        <iconify-icon icon="solar:layers-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
-                    </div>
-                    
-                    <div class="relative z-10 flex flex-col gap-3">
-                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Tratamento de Concreto e Ferragens</h3>
-                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                <!-- Serviço 2: Concreto e Ferragens (Texto Direita) -->
+                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm animate-reveal delay-400 bg-gradient-to-bl from-zinc-900 to-zinc-700">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:document-text-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
+                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Tratamento de Concreto e Ferragens</h3>
+                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
                             A saúde estrutural do edifício. Diagnóstico profundo e cura de armaduras oxidadas pela maresia, evitando riscos estruturais.
                         </p>
                     </div>
+                    <!-- Imagem -->
+                    <div class="w-full lg:w-[50%] min-h-[300px] lg:min-h-[100%] relative bg-zinc-100">
+                        <img src="public/fotos/ed-itaparica.webp" alt="Tratamento de Concreto" class="absolute inset-0 w-full h-full object-cover" />
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-500">
-                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    
-                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
-                        <iconify-icon icon="solar:waterdrop-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
-                    </div>
-                    
-                    <div class="relative z-10 flex flex-col gap-3">
-                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Impermeabilização de Alta Performance</h3>
-                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                <!-- Serviço 3: Impermeabilização (Texto Esquerda) -->
+                <div class="flex flex-col lg:flex-row rounded-md overflow-hidden shadow-sm animate-reveal delay-500 bg-gradient-to-tr from-zinc-900 to-zinc-700">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:refresh-circle-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
+                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Impermeabilização de Alta Performance</h3>
+                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
                             O fim das infiltrações. Sistemas avançados com mantas e resinas de ponta para lajes, garagens, piscinas e áreas de lazer.
                         </p>
                     </div>
+                    <!-- Imagem -->
+                    <div class="w-full lg:w-[50%] min-h-[300px] lg:min-h-[100%] relative bg-zinc-100">
+                        <img src="https://images.unsplash.com/photo-1541888086225-ee5a9751e061?q=80&w=1000&auto=format&fit=crop" alt="Impermeabilização" class="absolute inset-0 w-full h-full object-cover" />
+                    </div>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="group relative flex flex-col items-start gap-6 p-8 lg:p-10 bg-white/70 backdrop-blur-xl rounded-[1.5rem] border border-zinc-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,134,189,0.06)] hover:border-zinc-200/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-reveal delay-500">
-                    <div class="absolute inset-0 bg-gradient-to-br from-tiffany-600 to-tiffany-400 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 z-0"></div>
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tiffany-600 to-tiffany-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    
-                    <div class="relative z-10 w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-gradient-to-br group-hover:from-tiffany-600 group-hover:to-tiffany-400 transition-colors duration-500 shadow-sm border border-zinc-100 group-hover:border-transparent">
-                        <iconify-icon icon="solar:clipboard-check-bold-duotone" class="text-3xl text-tiffany-500 group-hover:text-white transition-colors duration-500"></iconify-icon>
-                    </div>
-                    
-                    <div class="relative z-10 flex flex-col gap-3">
-                        <h3 class="text-xl font-bold text-zinc-900 leading-tight group-hover:text-tiffany-600 transition-colors duration-500">Manutenção Predial Inteligente</h3>
-                        <p class="text-[0.95rem] text-zinc-600 leading-relaxed font-medium">
+                <!-- Serviço 4: Manutenção Predial (Texto Direita) -->
+                <div class="flex flex-col lg:flex-row-reverse rounded-md overflow-hidden shadow-sm animate-reveal delay-500 bg-gradient-to-bl from-zinc-900 to-zinc-700">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full lg:w-[50%] p-10 lg:p-14 xl:p-20 flex flex-col justify-center items-start">
+                        <iconify-icon icon="solar:settings-outline" class="text-[3rem] lg:text-[3.5rem] text-tiffany-500"></iconify-icon>
+                        <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-white mt-8 mb-4 tracking-tight leading-tight">Manutenção Predial Inteligente</h3>
+                        <p class="text-zinc-400 text-[0.95rem] lg:text-base leading-relaxed font-normal">
                             Preservação contínua do seu ativo. Intervenções preventivas que evitam taxas extras emergenciais e mantêm o padrão do condomínio impecável.
                         </p>
+                    </div>
+                    <!-- Imagem -->
+                    <div class="w-full lg:w-[50%] min-h-[300px] lg:min-h-[100%] relative bg-zinc-100">
+                        <img src="public/fotos/ed-itaparica-2.webp" alt="Manutenção Inteligente" class="absolute inset-0 w-full h-full object-cover" />
                     </div>
                 </div>
 
